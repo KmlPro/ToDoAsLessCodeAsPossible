@@ -1,0 +1,27 @@
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/appsettings.Development.json
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/appsettings.json
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/ToDo-Minimal Api 6
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/ToDo-Minimal Api 6.deps.json
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/ToDo-Minimal Api 6.runtimeconfig.json
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/ToDo-Minimal Api 6.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/ref/ToDo-Minimal Api 6.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/ToDo-Minimal Api 6.pdb
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.csproj.AssemblyReference.cache
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.AssemblyInfoInputs.cache
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.AssemblyInfo.cs
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.csproj.CoreCompileInputs.cache
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.MvcApplicationPartsAssemblyInfo.cs
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.MvcApplicationPartsAssemblyInfo.cache
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/staticwebassets.build.json
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/staticwebassets.development.json
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/scopedcss/bundle/ToDo-Minimal Api 6.styles.css
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.csproj.CopyComplete
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ref/ToDo-Minimal Api 6.dll
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.pdb
+/Users/kamilbytner/Repozytoria/ToDo-Minimal Api 6/obj/Debug/net6.0/ToDo-Minimal Api 6.genruntimeconfig.cache
