@@ -1,3 +1,5 @@
+using ToDo_Minimal_Api_6.Resources.ToDo;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -15,5 +17,7 @@ if (app.Environment.IsProduction())
 {
     app.UseHttpsRedirection();
 }
+
+app.RegisterToDoResource();
 
 app.Run();
