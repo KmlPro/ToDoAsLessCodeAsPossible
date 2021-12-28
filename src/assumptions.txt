@@ -19,3 +19,10 @@ Things To Do!
 11. Write first aspect (start with Exception Handling)
 12. Write other Aspects (Logging and Caching)
 13. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
+
+
+Decision (notes):
+- Create own command and query handling instead of using MediatR. I don't want to relay on external library (all stuffs that i need i can write by myself). 
+  Advg:
+      - clean code, without any external dependencies (so i don't need to reference MediatR in all projects)
+      - separated pipelines for queries and commands (MediatR always have one pipeline for all stuffs)
