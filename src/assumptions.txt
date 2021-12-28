@@ -3,19 +3,15 @@ Create API with MinimalApi approach.
 Things To Do!
 
 1. Make first request to get all ToDos (take data from memory)
-   - Take a look on Jakub Kozera repo and try to reproduce same configuration for endpoints (without validation) - Done
-   - MediatR (create Infrastructure and Application layer) -- in progress - creating ToDo use case (all interfaces should go to Building Blocks)
+   - Take a look on Jakub Kozera repo and try to reproduce same configuration for endpoints (without validation)
+   - MediatR (create Infrastructure and Application layer)
    - Repository should be mocked too
    - Write Api test to make easier testing :)
-2. Add automapping between RequestDto and Query (Creating To Do Case)
-3. Implement extension method for Execute usecases (.MapGetToUseCase<Dto,Command,Result>)
-4. Add Validation for Dtos
-5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request)
-6. Add persistance layer (with transactional support) 
-7. Write tests for Domain and UseCase Layer
-8. Add UseCase Get All To Dos
-9. Add other usecases (Complete to do, uncomplete, delete )
-10. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
-11. Write first aspect (start with Exception Handling)
-12. Write other Aspects (Logging and Caching)
-13. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
+2. Try to add automapping between Dto and Query (Get by Id case)
+3. Try add domain layer and add Command for Create Dto (still with mocked Repository). But they should throw domain expections and application
+4. Map errors to Http codes (Problem details)
+4. Add persistance layer (with transactional support) (there i need to fix test to use mocked repositories instead of real db. Maybe in memory database ?)
+5. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
+
+
+At the end, i want to have template to create minimal api.
