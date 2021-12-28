@@ -1,4 +1,4 @@
-namespace ToDoAsLessCodeAsPossible.Domain.ValueObjects;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Domain.ValueObjects;
 
 public class EntityId
 {

@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Us
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Domain", "ToDoAsLessCodeAsPossible.Domain\ToDoAsLessCodeAsPossible.Domain.csproj", "{47CB6767-5020-4E0D-9686-4A1E9FF36831}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.BuildingBlocks.Domain", "ToDoAsLessCodeAsPossible.BuildingBlocks.Domain\ToDoAsLessCodeAsPossible.BuildingBlocks.Domain.csproj", "{5E00CE68-8033-4C53-A4C5-2F7A8C825A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases", "ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases\ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.csproj", "{FB325CE4-0523-4130-97D4-4D4C1068A8E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,17 @@ Global
 		{47CB6767-5020-4E0D-9686-4A1E9FF36831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47CB6767-5020-4E0D-9686-4A1E9FF36831}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47CB6767-5020-4E0D-9686-4A1E9FF36831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E00CE68-8033-4C53-A4C5-2F7A8C825A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E00CE68-8033-4C53-A4C5-2F7A8C825A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E00CE68-8033-4C53-A4C5-2F7A8C825A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E00CE68-8033-4C53-A4C5-2F7A8C825A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB325CE4-0523-4130-97D4-4D4C1068A8E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB325CE4-0523-4130-97D4-4D4C1068A8E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB325CE4-0523-4130-97D4-4D4C1068A8E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB325CE4-0523-4130-97D4-4D4C1068A8E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E00CE68-8033-4C53-A4C5-2F7A8C825A38} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
+		{FB325CE4-0523-4130-97D4-4D4C1068A8E4} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
 	EndGlobalSection
 EndGlobal

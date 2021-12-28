@@ -4,5 +4,5 @@ namespace ToDoAsLessCodeAsPossible.Domain.Repository;
 
 public interface IToDoRepository
 {
-    public Task<ToDo> GetById();
+    public Task AddAsync(ToDo toDoEntity, CancellationToken token);
 }

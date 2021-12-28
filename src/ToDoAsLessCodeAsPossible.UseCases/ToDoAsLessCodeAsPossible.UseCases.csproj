@@ -10,4 +10,9 @@
       <Folder Include="Queries\GetAllToDo" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases\ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.csproj" />
+      <ProjectReference Include="..\ToDoAsLessCodeAsPossible.Domain\ToDoAsLessCodeAsPossible.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
