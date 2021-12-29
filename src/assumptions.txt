@@ -4,8 +4,8 @@ Things To Do!
 
 1. Make first request to get all ToDos (take data from memory)on
    - Take a look  Jakub Kozera repo and try to reproduce same configuration for endpoints (without validation) - Done
-   - MediatR (create Infrastructure and Application layer) -- in progress - creating ToDo use case (all interfaces should go to Building Blocks)
-   - Repository should be mocked too
+   - MediatR (create Infrastructure and Application layer) -- in progress - creating ToDo use case (all interfaces should go to Building Blocks) - done
+   - Repository should be mocked too - done
    - Write Api test to make easier testing :)
 2. Add automapping between RequestDto and Query (Creating To Do Case)
 3. Implement extension method for Execute usecases (.MapGetToUseCase<Dto,Command,Result>)
@@ -19,7 +19,7 @@ Things To Do!
 11. Write first aspect (start with Exception Handling)
 12. Write other Aspects (Logging and Caching)
 13. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
-
+14. Code style (.editorConfig)
 
 Decision (notes):
 - Create own command and query handling instead of using MediatR. I don't want to relay on external library (all stuffs that i need i can write by myself). 

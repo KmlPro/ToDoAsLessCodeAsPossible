@@ -1,13 +1,14 @@
 using ToDoAsLessCodeAsPossible.Api.Resources.ToDo;
+using ToDoAsLessCodeAsPossible.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
