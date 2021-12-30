@@ -1,11 +1,14 @@
 using ToDoAsLessCodeAsPossible.Api.Resources.ToDo;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests;
 using ToDoAsLessCodeAsPossible.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+var assembly = typeof(Program).Assembly;
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructure();
+builder.Services.AddRequestToUseCaseMapping(assembly);
 
 var app = builder.Build();
 

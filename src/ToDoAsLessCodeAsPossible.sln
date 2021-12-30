@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure", "ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure\ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.csproj", "{7BD99AA1-6B76-4C98-A6CB-0A0B3C8E7C33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.BuildingBlocks.Api", "ToDoAsLessCodeAsPossible.BuildingBlocks.Api\ToDoAsLessCodeAsPossible.BuildingBlocks.Api.csproj", "{2025F4F1-BEA6-4647-B384-B4F450306F13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,10 +52,15 @@ Global
 		{7BD99AA1-6B76-4C98-A6CB-0A0B3C8E7C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BD99AA1-6B76-4C98-A6CB-0A0B3C8E7C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BD99AA1-6B76-4C98-A6CB-0A0B3C8E7C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2025F4F1-BEA6-4647-B384-B4F450306F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2025F4F1-BEA6-4647-B384-B4F450306F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2025F4F1-BEA6-4647-B384-B4F450306F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2025F4F1-BEA6-4647-B384-B4F450306F13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5E00CE68-8033-4C53-A4C5-2F7A8C825A38} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
 		{FB325CE4-0523-4130-97D4-4D4C1068A8E4} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
 		{7BD99AA1-6B76-4C98-A6CB-0A0B3C8E7C33} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
+		{2025F4F1-BEA6-4647-B384-B4F450306F13} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
 	EndGlobalSection
 EndGlobal
