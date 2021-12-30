@@ -7,7 +7,7 @@ Things To Do!
    - MediatR (create Infrastructure and Application layer) -- in progress - creating ToDo use case (all interfaces should go to Building Blocks) - done
    - Repository should be mocked too - done
 2. Add automapping between RequestDto and Query (Creating To Do Case)
-3. Implement extension method for Execute usecases (.MapGetToUseCase<Dto,Command,Result>)
+3. Implement extension method for Execute usecases (.MapPostToCommand<Dto,Command,Result>) - done
 4. Add Validation for Dtos
 5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request)
 6. Add persistance layer (with transactional support) 
