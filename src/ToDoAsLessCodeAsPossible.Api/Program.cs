@@ -1,4 +1,4 @@
-using ToDoAsLessCodeAsPossible.Api.Resources.ToDo;
+using ToDoAsLessCodeAsPossible.Api;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests;
 using ToDoAsLessCodeAsPossible.Infrastructure;
 
@@ -22,6 +22,6 @@ if (app.Environment.IsProduction())
     app.UseHttpsRedirection();
 }
 
-app.RegisterToDoResource();
+app.RegisterEndpoints();
 
 app.Run();

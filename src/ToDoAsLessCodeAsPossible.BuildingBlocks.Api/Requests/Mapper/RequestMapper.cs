@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests.Mapper;
 
-internal class RequestMapper : IRequestMapper
+internal class RequestMapper
 {
     private readonly IServiceScopeFactory _serviceFactory;
 
@@ -15,7 +15,7 @@ internal class RequestMapper : IRequestMapper
     {
         using var scope = _serviceFactory.CreateScope();
 
-        var handler = scope.ServiceProvider.GetRequiredService<IRequestToUseCaseMapHandler<TRequest, TUseCase>>();
+        var handler = scope.ServiceProvider.GetService<IRequestToUseCaseMapHandler<TRequest, TUseCase>>();
         
         if (handler == null)
         {
