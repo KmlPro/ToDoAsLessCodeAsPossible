@@ -8,7 +8,7 @@ Things To Do!
    - Repository should be mocked too - done
 2. Add automapping between RequestDto and Query (Creating To Do Case)
 3. Implement extension method for Execute usecases (.MapPostToCommand<Dto,Command,Result>) - done
-4. Add Validation for Dtos
+4. Add Validation for Dtos - done
 5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request)
 6. Add persistance layer (with transactional support) 
 7. Write tests for Domain and UseCase Layer
@@ -25,3 +25,5 @@ Decision (notes):
   Advg:
       - clean code, without any external dependencies (so i don't need to reference MediatR in all projects)
       - separated pipelines for queries and commands (MediatR always have one pipeline for all stuffs)
+- Do not use FluentValidator in Request objects valiadation
+   - Data addnotations is enough to validate simple DTO's that comes from request, there is no need to have complex validation in this layer
