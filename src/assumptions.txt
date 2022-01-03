@@ -11,14 +11,16 @@ Things To Do!
 4. Add Validation for Dtos - done
 5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request) - done
 6. Add persistance layer (with transactional support) 
-7. Write tests for Domain and UseCase Layer
-8. Add UseCase Get To Do By Id With Validator
-9. Add other usecases (Complete to do, uncomplete, delete )
-10. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
-11. Write first aspect (start with Exception Handling)
-12. Write other Aspects (Logging and Caching)
-13. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
-14. Code style (.editorConfig)
+7. Add UseCase Get To Do By Id With Validator
+8. Add other usecases (Complete to do, uncomplete, delete )
+9. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
+10. Write first aspect (start with Exception Handling)
+11. Write other Aspects (Logging and Caching)
+12. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
+13. Code style (.editorConfig)
+14. Add documentation for project
+14. Write tests for Domain and UseCase Layer
+
 
 Decision (notes):
 - Create own command and query handling instead of using MediatR. I don't want to relay on external library (all stuffs that i need i can write by myself). 
