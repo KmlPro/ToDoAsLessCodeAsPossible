@@ -9,10 +9,10 @@ Things To Do!
 2. Add automapping between RequestDto and Query (Creating To Do Case)
 3. Implement extension method for Execute usecases (.MapPostToCommand<Dto,Command,Result>) - done
 4. Add Validation for Dtos - done
-5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request)
+5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request) - done
 6. Add persistance layer (with transactional support) 
 7. Write tests for Domain and UseCase Layer
-8. Add UseCase Get All To Dos
+8. Add UseCase Get To Do By Id With Validator
 9. Add other usecases (Complete to do, uncomplete, delete )
 10. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
 11. Write first aspect (start with Exception Handling)
@@ -27,3 +27,6 @@ Decision (notes):
       - separated pipelines for queries and commands (MediatR always have one pipeline for all stuffs)
 - Do not use FluentValidator in Request objects valiadation
    - Data addnotations is enough to validate simple DTO's that comes from request, there is no need to have complex validation in this layer
+- Do not use Problem Details library for mapping exceptions to response
+   - The main reason is that i don't want to include in all project that will use my mapping middleware dependecies from external Library.
+   - With my own code it's easy to create default rules for mapping and ovveride it in easy way

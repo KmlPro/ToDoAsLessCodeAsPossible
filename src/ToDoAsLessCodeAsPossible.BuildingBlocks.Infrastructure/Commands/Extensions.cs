@@ -7,6 +7,9 @@ namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 
 public static class Extensions
 {
+    /// <summary>
+    /// Add required instances for Command Handling 
+    /// </summary>
     public static IServiceCollection AddCommands(this IServiceCollection services,
         Assembly assembly)
     {

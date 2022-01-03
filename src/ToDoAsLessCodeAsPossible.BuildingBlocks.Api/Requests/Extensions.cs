@@ -7,6 +7,9 @@ namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests;
 
 public static class Extensions
 {
+    /// <summary>
+    /// Add required instances by MapRequestToCommand and MapRequestToQuery request processing methods
+    /// </summary>
     public static IServiceCollection AddRequestToUseCaseMapping(this IServiceCollection services,
         Assembly assembly)
     {

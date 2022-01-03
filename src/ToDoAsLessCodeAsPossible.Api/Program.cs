@@ -1,4 +1,5 @@
 using ToDoAsLessCodeAsPossible.Api;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests;
 using ToDoAsLessCodeAsPossible.Infrastructure;
 
@@ -7,8 +8,11 @@ var assembly = typeof(Program).Assembly;
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddInfrastructure();
 builder.Services.AddRequestToUseCaseMapping(assembly);
+builder.Services.AddExceptionToResponseMapping();
+builder.Services.AddDefaultExceptionToResponseMapper();
 
 var app = builder.Build();
 
@@ -23,5 +27,6 @@ if (app.Environment.IsProduction())
 }
 
 app.RegisterEndpoints();
+app.UseExceptionToResponseMapping();
 
 app.Run();

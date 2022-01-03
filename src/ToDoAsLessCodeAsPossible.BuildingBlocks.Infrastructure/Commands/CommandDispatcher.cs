@@ -13,11 +13,15 @@ internal sealed class CommandDispatcher : ICommandDispatcher
         _serviceFactory = serviceFactory;
     }
 
-    public async Task SendAsync<T>(T command, CancellationToken token) where T : class, ICommand
+    public async Task SendAsync<TCommand>(TCommand command, CancellationToken token) where TCommand : class, ICommand
     {
         using var scope = _serviceFactory.CreateScope();
 
-        var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<T>>();
+        var handler = scope.ServiceProvider.GetService<ICommandHandler<TCommand>>();
+        if (handler == null)
+        {
+            throw new CommandHandlerNotFoundException(typeof(TCommand).Name);
+        }
         await handler.HandleAsync(command, token);
     }
 }
