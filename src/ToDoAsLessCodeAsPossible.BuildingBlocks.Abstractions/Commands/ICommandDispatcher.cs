@@ -1,4 +1,4 @@
-namespace ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.Commands;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 
 public interface ICommandDispatcher
 {

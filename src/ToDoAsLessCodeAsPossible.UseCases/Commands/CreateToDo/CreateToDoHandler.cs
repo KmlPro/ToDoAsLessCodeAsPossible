@@ -1,5 +1,4 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.Commands;
 using ToDoAsLessCodeAsPossible.Domain.Entity;
 using ToDoAsLessCodeAsPossible.Domain.Repository;
 
@@ -19,7 +18,6 @@ internal class CreateToDoHandler : ICommandHandler<CreateToDo>
     public async Task HandleAsync(CreateToDo command, CancellationToken token)
     {
         var toDo = ToDo.Create(command.Title);
-        throw new Exception();
         await _toDoRepository.AddAsync(toDo, token);
     }
 }

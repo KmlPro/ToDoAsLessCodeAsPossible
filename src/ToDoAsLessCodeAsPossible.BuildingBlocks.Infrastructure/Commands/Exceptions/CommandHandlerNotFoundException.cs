@@ -1,4 +1,4 @@
-namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Exceptions;
 
 public class CommandHandlerNotFoundException : Exception
 {

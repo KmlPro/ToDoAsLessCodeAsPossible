@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests.Mapper;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests.Validation;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.Commands;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests;
 

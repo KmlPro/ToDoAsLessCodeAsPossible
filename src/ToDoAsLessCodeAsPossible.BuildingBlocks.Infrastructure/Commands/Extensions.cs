@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.Commands;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 
@@ -14,8 +14,13 @@ public static class Extensions
         Assembly assembly)
     {
         services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
+        services.AddSingleton<TransactionScopeFactory>();
+        services.AddSingleton<ICommandPipelineBehavior,UnitOfWorkCommandPipelineBehavior>();
+        services.AddSingleton<ICommandPipelineBehavior,ValidationCommandPipelineBehavior>();
+        
         services.Scan(s => s.FromAssemblies(assembly)
-            .AddClasses(c => c.AssignableTo(typeof(ICommandHandler<>)))
+            .AddClasses(classes => 
+                classes.AssignableTo(typeof(ICommandHandler<>)).Where(_ => !_.IsGenericType))
             .AsImplementedInterfaces()
             .WithScopedLifetime());
 

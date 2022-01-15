@@ -1,6 +1,6 @@
-using ToDoAsLessCodeAsPossible.BuildingBlocks.UseCases.Commands;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Exceptions;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 
@@ -13,15 +13,23 @@ internal sealed class CommandDispatcher : ICommandDispatcher
         _serviceFactory = serviceFactory;
     }
 
+    //Credits to: https://github.com/jbogard/MediatR/blob/8492e9e050e87c4e6e9837bd3af8cd6506aaa4af/src/MediatR/Wrappers/RequestHandlerWrapper.cs
     public async Task SendAsync<TCommand>(TCommand command, CancellationToken token) where TCommand : class, ICommand
     {
         using var scope = _serviceFactory.CreateScope();
-
-        var handler = scope.ServiceProvider.GetService<ICommandHandler<TCommand>>();
+        var provider = scope.ServiceProvider;
+        
+        var handler = provider.GetService<ICommandHandler<TCommand>>();
         if (handler == null)
         {
             throw new CommandHandlerNotFoundException(typeof(TCommand).Name);
         }
-        await handler.HandleAsync(command, token);
+
+        Task Handler() => handler.HandleAsync(command, token);
+
+        await provider
+            .GetServices<ICommandPipelineBehavior>()
+            .Reverse()
+            .Aggregate((CommandHandlerDelegate) Handler, (next, pipeline) => () => pipeline.Handle(command, token, next))();
     }
 }
