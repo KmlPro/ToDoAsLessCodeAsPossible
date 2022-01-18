@@ -10,8 +10,8 @@ Things To Do!
 3. Implement extension method for Execute usecases (.MapPostToCommand<Dto,Command,Result>) - done
 4. Add Validation for Dtos - done
 5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request) - done
-6. Add persistance layer (with transactional support) 
-7. Add UseCase Get To Do By Id With Validator
+6. Add persistance layer (with transactional support) (InMemory and real Sqlite, Tables configuration)
+7. Add UseCase Get To Do By Id With Validator and Dapper support (Raw query support)
 8. Add other usecases (Complete to do, uncomplete, delete )
 9. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
 10. Write first aspect (start with Exception Handling)
