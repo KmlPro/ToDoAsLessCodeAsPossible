@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Databases.Sqlite;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.InMemory;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.InMemory.DatabaseConfiguration;
 
@@ -11,7 +12,7 @@ public static class Extension
     /// Setup in memory Database configuration. Also it registers DbContext in container
     /// </summary>
     public static IServiceCollection AddInMemoryDatabase<TDbContext>(this IServiceCollection services,
-        InMemoryDatabaseParameters parameters) where TDbContext:DbContext 
+        InMemoryDatabaseParameters parameters) where TDbContext:DbContext
     {
         Action<DbContextOptionsBuilder> optionsBuilder;
 
@@ -22,6 +23,19 @@ public static class Extension
             _ => throw new NotSupportedException(
                 $"Database Provider {parameters.DatabaseProvider.ToString()} is not supported")
         };
+
+        services.AddDbContext<TDbContext>(optionsBuilder);
+
+        return services;
+    }
+    
+    /// <summary>
+    /// Sqlite Database configuration injected to DbContext
+    /// </summary>
+    public static IServiceCollection AddSqliteDatabase<TDbContext>(this IServiceCollection services,
+        SqliteDatabaseParameters parameters) where TDbContext:DbContext
+    {
+        var optionsBuilder = new SqliteConfigurationFactory().Create(parameters);
 
         services.AddDbContext<TDbContext>(optionsBuilder);
 

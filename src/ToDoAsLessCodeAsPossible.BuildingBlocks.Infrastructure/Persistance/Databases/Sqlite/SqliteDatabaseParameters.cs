@@ -1,0 +1,3 @@
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Databases.Sqlite;
+
+public record SqliteDatabaseParameters(string ConnectionString);
