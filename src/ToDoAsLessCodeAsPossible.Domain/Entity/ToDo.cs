@@ -5,17 +5,17 @@ namespace ToDoAsLessCodeAsPossible.Domain.Entity;
 
 public class ToDo
 {
-    public EntityId Id { get; private set; }
-    public string Title{ get; private set; }
-    public bool IsCompleted { get; private set; }
-    
-    private ToDo(EntityId id,string title)
+    public EntityId Id { get; }
+    private string _title;
+    private bool _isCompleted;
+
+    private ToDo(EntityId id, string title)
     {
         Ensure.That(title, nameof(title)).IsNotNullOrWhiteSpace();
-        
+
         Id = id;
-        Title = title;
-        IsCompleted = false;
+        _title = title;
+        _isCompleted = false;
     }
 
     public static ToDo Create(string title)
