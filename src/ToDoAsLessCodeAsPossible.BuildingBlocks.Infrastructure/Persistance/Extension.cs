@@ -18,12 +18,14 @@ public static class Extension
 
         optionsBuilder = parameters.DatabaseProvider switch
         {
-            InMemoryDatabaseProvider.Sqlite => new InMemoryEfDatabaseConfigurationFactory().Create(),
+            InMemoryDatabaseProvider.Sqlite => new InMemorySqliteConfigurationFactory().Create(),
             InMemoryDatabaseProvider.EfCore => new InMemoryEfDatabaseConfigurationFactory().Create(),
             _ => throw new NotSupportedException(
                 $"Database Provider {parameters.DatabaseProvider.ToString()} is not supported")
         };
 
+        //i need to think about how to add StronglyTypedIdValueConverterSelector to DbContext. And next step will be add IUnitOfWork Interface to Pipeline 
+        //https://github.com/KmlPro/IncidentManagmentSystem/blob/e170d6ea67f8b6513c04197d49c1daff867c3493/src/IncidentReport.Infrastructure/Persistence/Configurations/PersistanceModule.cs
         services.AddDbContext<TDbContext>(optionsBuilder);
 
         return services;
