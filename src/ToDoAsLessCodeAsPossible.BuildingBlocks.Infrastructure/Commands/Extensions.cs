@@ -2,6 +2,7 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Transactions;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 
@@ -13,10 +14,9 @@ public static class Extensions
     public static IServiceCollection AddCommands(this IServiceCollection services,
         Assembly assembly)
     {
-        services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
-        services.AddSingleton<TransactionScopeFactory>();
-        services.AddSingleton<ICommandPipelineBehavior,UnitOfWorkCommandPipelineBehavior>();
-        services.AddSingleton<ICommandPipelineBehavior,ValidationCommandPipelineBehavior>();
+        services.AddScoped<ICommandDispatcher, CommandDispatcher>();
+        services.AddScoped<ICommandPipelineBehavior,UnitOfWorkCommandPipelineBehavior>();
+        services.AddScoped<ICommandPipelineBehavior,ValidationCommandPipelineBehavior>();
         
         services.Scan(s => s.FromAssemblies(assembly)
             .AddClasses(classes => 

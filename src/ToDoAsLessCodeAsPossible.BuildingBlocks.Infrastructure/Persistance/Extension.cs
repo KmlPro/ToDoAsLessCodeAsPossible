@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Databases.Sqlite;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.InMemory;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.InMemory.DatabaseConfiguration;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Transactions;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance;
 
@@ -23,6 +24,8 @@ public static class Extension
         };
 
         services.AddDbContext<TDbContext>(optionsBuilder);
+        services.AddScoped<ITransactionScopeFactory>(services =>
+            new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
 
         return services;
     }
@@ -36,7 +39,9 @@ public static class Extension
         var optionsBuilder = new SqliteConfigurationFactory().Create(parameters);
 
         services.AddDbContext<TDbContext>(optionsBuilder);
-
+        services.AddScoped<ITransactionScopeFactory>(services =>
+            new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
+        
         return services;
     }
 }

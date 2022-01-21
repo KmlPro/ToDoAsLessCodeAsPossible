@@ -1,12 +1,13 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Transactions;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
 
 internal sealed class UnitOfWorkCommandPipelineBehavior : ICommandPipelineBehavior
 {
-    private TransactionScopeFactory _transactionScopeFactory;
+    private ITransactionScopeFactory _transactionScopeFactory;
 
-    public UnitOfWorkCommandPipelineBehavior(TransactionScopeFactory transactionScopeFactory)
+    public UnitOfWorkCommandPipelineBehavior(ITransactionScopeFactory transactionScopeFactory)
     {
         _transactionScopeFactory = transactionScopeFactory;
     }
@@ -15,7 +16,7 @@ internal sealed class UnitOfWorkCommandPipelineBehavior : ICommandPipelineBehavi
     //the reason why i use it here is to improve performance, because there i don't care about synchronization context (like HttpContext.Current)
     public async Task Handle<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
     {
-        using var transaction = _transactionScopeFactory.Create();
+        await using var transaction = _transactionScopeFactory.Create();
         await next().ConfigureAwait(false);
         await transaction.CommitAsync(cancellationToken);;
     }
