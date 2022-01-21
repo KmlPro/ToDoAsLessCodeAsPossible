@@ -1,5 +1,5 @@
 ﻿using EnsureThat;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Domain.ValueObjects;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.ValueObjects;
 
 namespace ToDoAsLessCodeAsPossible.Domain.Entity;
 
