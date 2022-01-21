@@ -1,15 +1,20 @@
-using System.Transactions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 
-//TO DO I need to rewirte it to use context.Database.BeginTransaction
-//According to https://docs.microsoft.com/en-us/ef/ef6/saving/transactions
+//According to https://docs.microsoft.com/en-us/ef/ef6/saving/transactions, BeginTransaction is recommended way to handle transactions, thats  why i use Database.BeginTransaction instead of TransactionScope options
 public class TransactionScopeFactory
 {
-    public TransactionScope Create()
+    private DbContext _dbContext;
+
+    public TransactionScopeFactory(DbContext dbContext)
     {
-        return new TransactionScope(TransactionScopeOption.Required,
-            new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted },
-            TransactionScopeAsyncFlowOption.Enabled);
+        _dbContext = dbContext;
+    }
+    
+    public IDbContextTransaction Create()
+    {
+        return _dbContext.Database.BeginTransaction();
     }
 }

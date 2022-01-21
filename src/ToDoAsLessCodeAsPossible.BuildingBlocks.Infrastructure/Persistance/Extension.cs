@@ -22,7 +22,6 @@ public static class Extension
                 $"Database Provider {parameters.DatabaseProvider.ToString()} is not supported")
         };
 
-        //Add IUnitOfWork Interface to Unit Of Work CommandPipeline 
         services.AddDbContext<TDbContext>(optionsBuilder);
 
         return services;

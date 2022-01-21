@@ -7,6 +7,6 @@ public class ValidationCommandPipelineBehavior: ICommandPipelineBehavior
     public async Task Handle<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
     {
         //to do get validator
-        await next();
+        await next().ConfigureAwait(false);
     }
 }
