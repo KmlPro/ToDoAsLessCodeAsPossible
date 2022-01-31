@@ -1,12 +1,10 @@
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 
-public delegate Task QueryHandlerDelegate();
+public delegate Task<TResult> QueryHandlerDelegate<TResult>() where TResult: IQueryResult;
 
 public interface IQueryPipelineBehavior
 {
-    Task<TResult> Handle<TQuery, TResult>(TQuery query, CancellationToken cancellationToken,
-        QueryHandlerDelegate next)
+    Task<TResult> HandleAsync<TQuery, TResult>(TQuery query, CancellationToken cancellationToken,
+        QueryHandlerDelegate<TResult> next)
         where TQuery : IQuery where TResult : IQueryResult;
 }

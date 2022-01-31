@@ -30,6 +30,6 @@ internal sealed class CommandDispatcher : ICommandDispatcher
         await provider
             .GetServices<ICommandPipelineBehavior>()
             .Reverse()
-            .Aggregate((CommandHandlerDelegate) Handler, (next, pipeline) => () => pipeline.Handle(command, token, next))();
+            .Aggregate((CommandHandlerDelegate) Handler, (next, pipeline) => async () => await pipeline.HandleAsync(command, token, next))();
     }
 }
