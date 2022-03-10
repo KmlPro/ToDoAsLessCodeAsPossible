@@ -1,5 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Exceptions;
 
