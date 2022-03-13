@@ -14,7 +14,7 @@ public static class Extensions
     /// Setup in memory Database configuration. Also it registers DbContext and ISqlQueryExecutor in container
     /// </summary>
     public static IServiceCollection AddInMemoryDatabase<TDbContext>(this IServiceCollection services,
-        InMemoryDatabaseParameters parameters) where TDbContext:DbContext
+        InMemoryDatabaseParameters parameters) where TDbContext : DbContext
     {
         var optionsBuilder = parameters.DatabaseProvider switch
         {
@@ -27,25 +27,25 @@ public static class Extensions
         services.AddDbContext<TDbContext>(optionsBuilder);
         services.AddScoped<ITransactionScopeFactory>(services =>
             new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
-        
-        services.AddScoped<ISqlQueryExecutor, SqlQueryExecutor>();
+
+        services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor("Filename=:memory:"));
 
         return services;
     }
-    
+
     /// <summary>
     /// Sqlite Database configuration injected to DbContext. Also it registers ISqlQueryExecutor in container
     /// </summary>
     public static IServiceCollection AddSqliteDatabase<TDbContext>(this IServiceCollection services,
-        SqliteDatabaseParameters parameters) where TDbContext:DbContext
+        SqliteDatabaseParameters parameters) where TDbContext : DbContext
     {
         var optionsBuilder = new SqliteConfigurationFactory().Create(parameters);
 
         services.AddDbContext<TDbContext>(optionsBuilder);
         services.AddScoped<ITransactionScopeFactory>(services =>
             new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
-        
-        services.AddScoped<ISqlQueryExecutor, SqlQueryExecutor>();
+
+        services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor(parameters.ConnectionString));
 
         return services;
     }

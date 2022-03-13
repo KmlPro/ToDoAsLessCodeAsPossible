@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Queries\GetAllToDo" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions\ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.csproj" />
       <ProjectReference Include="..\ToDoAsLessCodeAsPossible.Domain\ToDoAsLessCodeAsPossible.Domain.csproj" />
     </ItemGroup>
