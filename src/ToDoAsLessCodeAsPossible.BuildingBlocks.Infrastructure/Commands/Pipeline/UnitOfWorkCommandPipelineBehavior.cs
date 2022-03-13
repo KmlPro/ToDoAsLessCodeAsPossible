@@ -6,7 +6,7 @@ namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeli
 internal sealed class UnitOfWorkCommandPipelineBehavior : ICommandPipelineBehavior
 {
     private ITransactionScopeFactory _transactionScopeFactory;
-
+    
     public UnitOfWorkCommandPipelineBehavior(ITransactionScopeFactory transactionScopeFactory)
     {
         _transactionScopeFactory = transactionScopeFactory;

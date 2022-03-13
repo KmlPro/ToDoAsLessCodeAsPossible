@@ -9,6 +9,8 @@ namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.InM
 
 public class InMemorySqliteConfigurationFactory
 {
+    public const string ConnectionString = "Data Source=InMemorySample;Mode=Memory;Cache=Shared";
+    
     private DbConnection _dbConnection;
 
     public InMemorySqliteConfigurationFactory()
@@ -30,7 +32,7 @@ public class InMemorySqliteConfigurationFactory
 
     private static DbConnection CreateInMemoryDatabaseConnection()
     {
-        var connection = new SqliteConnection("Filename=:memory:");
+        var connection = new SqliteConnection(ConnectionString);
         connection.OpenAsync().GetAwaiter().GetResult();
         return connection;
     }

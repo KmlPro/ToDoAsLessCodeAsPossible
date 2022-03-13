@@ -16,7 +16,7 @@ internal class GetAllToDoHandler : IQueryHandler<GetAllToDo,GetAllToDoResult>
 
     public async Task<GetAllToDoResult> HandleAsync(GetAllToDo query, CancellationToken cancellationToken)
     {
-        var sql = "select * from ToDo";
+        var sql = "select Id, Title, IsCompleted from ToDo";
         var toDos = await _sqlQueryExecutor.QueryAsync<ToDoDto>(sql, null, cancellationToken);
 
         return new GetAllToDoResult(toDos);

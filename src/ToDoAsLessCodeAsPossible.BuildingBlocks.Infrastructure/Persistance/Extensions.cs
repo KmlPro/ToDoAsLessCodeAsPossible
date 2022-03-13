@@ -28,7 +28,8 @@ public static class Extensions
         services.AddScoped<ITransactionScopeFactory>(services =>
             new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
 
-        services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor("Filename=:memory:"));
+        //kbytner 13.03.2022 - temporary solution 
+        services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor(InMemorySqliteConfigurationFactory.ConnectionString));
 
         return services;
     }

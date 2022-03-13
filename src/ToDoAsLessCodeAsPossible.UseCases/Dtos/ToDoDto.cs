@@ -1,3 +1,8 @@
 namespace ToDoAsLessCodeAsPossible.UseCases.Dtos;
 
-public record ToDoDto(string Id, string Title, bool IsCompleted);
+public record ToDoDto
+{
+    public string Id { get; init; }
+    public string Title { get; init; }
+    public bool IsCompleted { get; init; }
+}
