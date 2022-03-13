@@ -2,6 +2,7 @@ using ToDoAsLessCodeAsPossible.Api;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Requests;
 using ToDoAsLessCodeAsPossible.Infrastructure;
+using ToDoAsLessCodeAsPossible.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 var assembly = typeof(Program).Assembly;
@@ -15,6 +16,7 @@ builder.Services.AddExceptionToResponseMapping();
 builder.Services.AddDefaultExceptionToResponseMapper();
 
 var app = builder.Build();
+DatabaseCreator.CreateDatabaseSchema(app.Services);
 
 if (app.Environment.IsDevelopment())
 {
