@@ -25,8 +25,8 @@ public static class Extensions
         };
 
         services.AddDbContext<TDbContext>(optionsBuilder);
-        services.AddScoped<ITransactionScopeFactory>(services =>
-            new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
+        services.AddScoped<IUnitOfWork>(services =>
+            new UnitOfWork(services.GetRequiredService<TDbContext>()));
 
         //kbytner 13.03.2022 - temporary solution 
         services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor(InMemorySqliteConfigurationFactory.ConnectionString));
@@ -43,8 +43,8 @@ public static class Extensions
         var optionsBuilder = new SqliteConfigurationFactory().Create(parameters);
 
         services.AddDbContext<TDbContext>(optionsBuilder);
-        services.AddScoped<ITransactionScopeFactory>(services =>
-            new TransactionScopeFactory(services.GetRequiredService<TDbContext>()));
+        services.AddScoped<IUnitOfWork>(services =>
+            new UnitOfWork(services.GetRequiredService<TDbContext>()));
 
         services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor(parameters.ConnectionString));
 

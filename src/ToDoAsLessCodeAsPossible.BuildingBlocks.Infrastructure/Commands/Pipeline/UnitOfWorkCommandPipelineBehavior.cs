@@ -5,19 +5,20 @@ namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeli
 
 internal sealed class UnitOfWorkCommandPipelineBehavior : ICommandPipelineBehavior
 {
-    private ITransactionScopeFactory _transactionScopeFactory;
+    private IUnitOfWork unitOfWork;
     
-    public UnitOfWorkCommandPipelineBehavior(ITransactionScopeFactory transactionScopeFactory)
+    public UnitOfWorkCommandPipelineBehavior(IUnitOfWork unitOfWork)
     {
-        _transactionScopeFactory = transactionScopeFactory;
+        this.unitOfWork = unitOfWork;
     }
 
     //about ConfigureAwait(false): https://devblogs.microsoft.com/dotnet/configureawait-faq/
     //the reason why i use it here is to improve performance, because there i don't care about synchronization context (like HttpContext.Current)
     public async Task HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
     {
-        await using var transaction = _transactionScopeFactory.Create();
+        await using var transaction = unitOfWork.BeginTransaction();
         await next().ConfigureAwait(false);
+        await unitOfWork.SaveChangesAsync(cancellationToken);
         await transaction.CommitAsync(cancellationToken);;
     }
 }
