@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ToDoAsLessCodeAsPossible.Api.UseCases.CreateToDos;
+namespace ToDoAsLessCodeAsPossible.Api.UseCases.CreateToDo;
 
 public record CreateToDoRequest
 {
