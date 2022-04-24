@@ -1,6 +1,6 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 using ToDoAsLessCodeAsPossible.UseCases.Dtos;
 
-namespace ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDos;
+namespace ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDo;
 
-public record GetToDoResult(ToDoDto ToDos) : IQueryResult;
+public record GetToDoResult(ToDoDto ToDo) : IQueryResult;

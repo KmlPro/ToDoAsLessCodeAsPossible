@@ -2,7 +2,7 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.Domain.Entity;
 using ToDoAsLessCodeAsPossible.Domain.Repository;
 
-namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDo;
+namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDos;
 
 public record CreateToDo(string Title) : ICommand;
 

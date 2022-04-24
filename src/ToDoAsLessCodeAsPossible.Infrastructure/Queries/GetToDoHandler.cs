@@ -2,7 +2,6 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Sql;
 using ToDoAsLessCodeAsPossible.UseCases.Dtos;
 using ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDo;
-using ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDos;
 
 namespace ToDoAsLessCodeAsPossible.Infrastructure.Queries;
 
