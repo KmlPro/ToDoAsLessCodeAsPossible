@@ -1,4 +1,4 @@
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 
 //Add Query result 
-public interface IQuery { }
+public interface IQuery<TQueryResult> { }

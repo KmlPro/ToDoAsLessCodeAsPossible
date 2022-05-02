@@ -10,7 +10,7 @@ public static class Endpoint
         app.MapGet("/todo/{id:guid}", async (Guid id, IQueryDispatcher queryDispatcher, CancellationToken token) =>
         {
             var query = new GetToDo(id);
-            var result = await queryDispatcher.Handle<GetToDo, GetToDoResult>(query,token);
+            var result = await queryDispatcher.Handle(query,token);
             return Results.Ok(result);
         });
     }

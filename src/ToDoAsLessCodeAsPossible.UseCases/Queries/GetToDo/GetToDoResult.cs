@@ -3,4 +3,4 @@ using ToDoAsLessCodeAsPossible.UseCases.Dtos;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDo;
 
-public record GetToDoResult(ToDoDto ToDo) : IQueryResult;
+public record GetToDoResult(ToDoDto ToDo);
