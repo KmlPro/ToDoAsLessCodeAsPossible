@@ -5,7 +5,7 @@ using ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDo;
 
 namespace ToDoAsLessCodeAsPossible.Infrastructure.Queries;
 
-internal class GetToDoHandler : IQueryHandler<GetToDo,GetToDoResult>
+internal class GetToDoHandler : IQueryHandler<GetToDo,ToDoDto>
 {
     private readonly ISqlQueryExecutor _sqlQueryExecutor;
 
@@ -14,13 +14,13 @@ internal class GetToDoHandler : IQueryHandler<GetToDo,GetToDoResult>
         _sqlQueryExecutor = sqlQueryExecutor;
     }
 
-    public async Task<GetToDoResult> HandleAsync(GetToDo query, CancellationToken cancellationToken)
+    public async Task<ToDoDto> HandleAsync(GetToDo query, CancellationToken cancellationToken)
     {
         var parameters = new { Id = query.Id };
         var sql = "select Id, Title, IsCompleted from ToDo where Id == @Id";
         var toDos = await _sqlQueryExecutor.QueryFirstOrDefaultAsync<ToDoDto>(sql, parameters, cancellationToken);
         
         //TO DO Exception not found 
-        return new GetToDoResult(toDos);
+        return toDos;
     }
 }

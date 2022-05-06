@@ -5,7 +5,7 @@ using ToDoAsLessCodeAsPossible.UseCases.Queries.GetAllToDo;
 
 namespace ToDoAsLessCodeAsPossible.Infrastructure.Queries;
 
-internal class GetAllToDoHandler : IQueryHandler<GetAllToDo,GetAllToDoResult>
+internal class GetAllToDoHandler : IQueryHandler<GetAllToDo,IEnumerable<ToDoDto>>
 {
     private readonly ISqlQueryExecutor _sqlQueryExecutor;
 
@@ -14,11 +14,11 @@ internal class GetAllToDoHandler : IQueryHandler<GetAllToDo,GetAllToDoResult>
         _sqlQueryExecutor = sqlQueryExecutor;
     }
 
-    public async Task<GetAllToDoResult> HandleAsync(GetAllToDo query, CancellationToken cancellationToken)
+    public async Task<IEnumerable<ToDoDto>> HandleAsync(GetAllToDo query, CancellationToken cancellationToken)
     {
         var sql = "select Id, Title, IsCompleted from ToDo";
         var toDos = await _sqlQueryExecutor.QueryAsync<ToDoDto>(sql, null, cancellationToken);
 
-        return new GetAllToDoResult(toDos);
+        return toDos;
     }
 }
