@@ -12,7 +12,7 @@ Things To Do!
 5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request) - done
 6. Add persistance layer (with transactional support) (InMemory and real Sqlite, Tables configuration) - done
 7. Add UseCase Get All To Dos Dapper support (Raw query support) - done
-7a. Add UseCase Get To Do By Id With Validator
+7a. Add UseCase Get To Do By Id With Validator - done
 7b. Add filters for /todo endpoint (by Completed)
 8. Add other usecases (Complete to do, uncomplete, delete )
 9. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
