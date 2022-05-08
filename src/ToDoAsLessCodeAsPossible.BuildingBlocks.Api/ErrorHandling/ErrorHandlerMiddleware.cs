@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions.Mapper;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions.Payload;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.Mapper;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.Payload;
 
-namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling;
 
 internal sealed class ErrorHandlerMiddleware : IMiddleware
 {

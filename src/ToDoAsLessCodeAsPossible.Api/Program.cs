@@ -1,5 +1,5 @@
 using ToDoAsLessCodeAsPossible.Api;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling;
 using ToDoAsLessCodeAsPossible.Infrastructure;
 using ToDoAsLessCodeAsPossible.Infrastructure.Persistence;
 

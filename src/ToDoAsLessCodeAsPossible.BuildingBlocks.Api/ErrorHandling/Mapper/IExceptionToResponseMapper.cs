@@ -1,4 +1,4 @@
-namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions.Mapper;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.Mapper;
 
 public interface IExceptionToResponseMapper
 {

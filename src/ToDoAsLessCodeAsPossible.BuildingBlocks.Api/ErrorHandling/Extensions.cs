@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions.Mapper;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.Mapper;
 
-namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Exceptions;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling;
 
 public static class Extensions
 {
