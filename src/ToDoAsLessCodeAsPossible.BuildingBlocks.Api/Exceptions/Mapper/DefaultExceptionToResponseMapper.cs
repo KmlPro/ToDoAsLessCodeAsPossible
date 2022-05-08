@@ -11,9 +11,4 @@ internal class DefaultExceptionToResponseMapper : IExceptionToResponseMapper
         //    InvalidRequestException ex => new ErrorResponse(HttpStatusCode.BadRequest,CreatePayload(ex.Message, ex.ErrorMessages)),
             _ => null
         };
-
-    private ErrorPayload CreatePayload(string message, List<string> errorMessages)
-    {
-        return new ErrorPayload(message, errorMessages);
-    }
 }

@@ -16,11 +16,10 @@ internal class GetToDoHandler : IQueryHandler<GetToDo,ToDoDto>
 
     public async Task<ToDoDto> HandleAsync(GetToDo query, CancellationToken cancellationToken)
     {
-        var parameters = new { Id = query.Id };
+        var parameters = new { query.Id };
         var sql = "select Id, Title, IsCompleted from ToDo where Id == @Id";
         var toDos = await _sqlQueryExecutor.QueryFirstOrDefaultAsync<ToDoDto>(sql, parameters, cancellationToken);
         
-        //TO DO Exception not found 
         return toDos;
     }
 }
