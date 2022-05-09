@@ -1,5 +1,4 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.BuildInExceptions;
 using ToDoAsLessCodeAsPossible.UseCases.Queries.GetToDo;
 
 namespace ToDoAsLessCodeAsPossible.Api.UseCases.GetToDos;
