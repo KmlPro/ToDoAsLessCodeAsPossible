@@ -19,6 +19,7 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+      <PackageReference Include="MiniValidation" Version="0.5.1-pre.20220429.53" />
       <PackageReference Include="Scrutor" Version="3.3.0" />
     </ItemGroup>
 

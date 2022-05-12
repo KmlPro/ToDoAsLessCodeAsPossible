@@ -1,6 +1,8 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Pipeline;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Validation;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries;
 
@@ -13,6 +15,7 @@ public static class Extensions
         Assembly assembly)
     {
         services.AddScoped<IQueryDispatcher, QueryDispatcher>();
+        services.AddScoped<IQueryPipelineBehavior,ValidationQueryPipelineBehavior>();
 
         services.Scan(s => s.FromAssemblies(assembly)
             .AddClasses(classes => 
