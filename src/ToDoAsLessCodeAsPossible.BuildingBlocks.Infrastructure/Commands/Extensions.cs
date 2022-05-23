@@ -2,7 +2,7 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Validation;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline.Validation;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 
