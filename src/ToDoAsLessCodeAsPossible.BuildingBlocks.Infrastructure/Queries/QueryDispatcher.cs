@@ -39,13 +39,14 @@ internal sealed class QueryDispatcher : IQueryDispatcher
             throw new QueryHandlerNotFoundException(queryName);
         }
 
-        MethodInfo handleAsyncMethod = MethodInfoGetter.GetByName(handler,QUERY_HANDLE_METHOD_NAME);
+        MethodInfo handleAsyncMethod = MethodInfoGetter.GetByName(handler, QUERY_HANDLE_METHOD_NAME);
         if (handleAsyncMethod == null)
         {
-            throw new NotFoundHandleAsyncMethodException(queryName);
+            throw new MethodNotFoundInGenericTypeException(queryName, QUERY_HANDLE_METHOD_NAME);
         }
 
-        Task<TResult> Handler() => AsyncMethodInfoExecutor.InvokeAsync<TResult>(handleAsyncMethod, handler, (dynamic)query, cancellationToken);
+        Task<TResult> Handler() =>
+            MethodExecutor.InvokeAsync<TResult>(handleAsyncMethod, handler, (dynamic)query, cancellationToken);
 
         return await provider
             .GetServices<IQueryPipelineBehavior>()

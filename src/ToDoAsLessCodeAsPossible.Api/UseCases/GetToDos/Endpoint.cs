@@ -7,10 +7,9 @@ public static class Endpoint
 {
     public static void GetToDoEndpoint(this WebApplication app)
     {
-        app.MapGet("/todo/{id}", async (string id, IQueryDispatcher queryDispatcher, CancellationToken token) =>
+        app.MapGet("/todo/{id:guid}", async (Guid id, IQueryDispatcher queryDispatcher, CancellationToken token) =>
         {
-            RequestValidator.ValidateAndThrow(id);
-            var query = new GetToDo(new Guid(id));
+            var query = new GetToDo(id);
             
             var result = await queryDispatcher.Handle(query,token);
             // ReSharper disable once ConditionIsAlwaysTrueOrFalse

@@ -1,5 +1,4 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Validation;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
 
