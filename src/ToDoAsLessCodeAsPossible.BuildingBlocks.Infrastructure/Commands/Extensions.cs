@@ -23,6 +23,18 @@ public static class Extensions
                 classes.AssignableTo(typeof(ICommandHandler<>)).Where(_ => !_.IsGenericType))
             .AsImplementedInterfaces()
             .WithScopedLifetime());
+        
+        services.Scan(s => s.FromAssemblies(assembly)
+            .AddClasses(classes => 
+                classes.AssignableTo(typeof(ICommandRulesValidator<>)).Where(_ => !_.IsGenericType))
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
+        
+        services.Scan(s => s.FromAssemblies(assembly)
+            .AddClasses(classes => 
+                classes.AssignableTo(typeof(ICommandStructValidator<>)).Where(_ => !_.IsGenericType))
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
 
         return services;
     }

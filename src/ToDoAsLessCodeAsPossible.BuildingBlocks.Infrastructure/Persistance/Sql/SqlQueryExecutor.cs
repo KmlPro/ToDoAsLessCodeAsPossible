@@ -23,9 +23,9 @@ internal class SqlQueryExecutor : ISqlQueryExecutor, IDisposable
         return await _connection.QueryFirstOrDefaultAsync<T>(sql, param);
     }
 
-    public Task<T> QuerySingleAsync<T>(string sql, object? param = null, CancellationToken cancellationToken = default)
+    public async Task<T> QuerySingleAsync<T>(string sql, object? param = null, CancellationToken cancellationToken = default)
     {
-        return _connection.QuerySingleAsync<T>(sql, param);
+        return await _connection.QuerySingleAsync<T>(sql, param);
     }
     
     public void Dispose()

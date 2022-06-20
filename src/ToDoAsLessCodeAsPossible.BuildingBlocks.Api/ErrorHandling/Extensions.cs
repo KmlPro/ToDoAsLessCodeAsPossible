@@ -9,7 +9,16 @@ public static class Extensions
     /// <summary> Add default exception to response mapper for generic exceptions like:
     /// <list type="bullet">
     /// <item>
-    /// <description>InvalidRequestException => (400)BadRequest</description>
+    /// <description>InvalidQueryStructException => (400)BadRequest</description>
+    /// </item>
+    /// <item>
+    /// <description>QueryRulesBrokenException => (422)UnprocessableEntity</description>
+    /// </item>
+    /// <item>
+    /// <description>InvalidCommandStructException => (400)BadRequest</description>
+    /// </item>
+    /// <item>
+    /// <description>CommandRulesBrokenException => (422)UnprocessableEntity</description>
     /// </item>
     /// </list>
     /// </summary>

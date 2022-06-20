@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions\ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.csproj" />
+      <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure\ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

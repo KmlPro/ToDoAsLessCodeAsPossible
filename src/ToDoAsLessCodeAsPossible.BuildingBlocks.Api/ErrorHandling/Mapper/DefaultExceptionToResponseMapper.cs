@@ -1,6 +1,7 @@
 using System.Net;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.BuildInExceptions;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.Payload;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Exceptions;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Exceptions;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.ErrorHandling.Mapper;
 
@@ -9,7 +10,10 @@ internal class DefaultExceptionToResponseMapper : IExceptionToResponseMapper
     public ErrorResponse? Map<TExceptionType>(TExceptionType exception) where TExceptionType : Exception
         => exception switch
         {
-            InvalidRequestException ex => new ErrorResponse(HttpStatusCode.BadRequest,CreatePayload(ex.Message, ex.ErrorMessages)),
+            InvalidQueryStructException ex => new ErrorResponse(HttpStatusCode.BadRequest,CreatePayload(ex.Message, ex.ErrorMessages)),
+            QueryRulesBrokenException ex => new ErrorResponse(HttpStatusCode.UnprocessableEntity,CreatePayload(ex.Message, ex.ErrorMessages)),
+            InvalidCommandStructException ex => new ErrorResponse(HttpStatusCode.BadRequest,CreatePayload(ex.Message, ex.ErrorMessages)),
+            CommandRulesBrokenException ex => new ErrorResponse(HttpStatusCode.UnprocessableEntity,CreatePayload(ex.Message, ex.ErrorMessages)),
             _ => null
         };
 
