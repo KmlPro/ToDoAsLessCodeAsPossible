@@ -12,8 +12,9 @@ Things To Do!
 5. Map errors to Http codes (Problem details) (For now Validation Error for Validate Dtos. Bad Request) - done
 6. Add persistance layer (with transactional support) (InMemory and real Sqlite, Tables configuration) - done
 7. Add UseCase Get All To Dos Dapper support (Raw query support) - done
-7a. Add UseCase Get To Do By Id With Validator - done
-7b. Add filters for /todo endpoint (by Completed)
+7a. Add UseCase Get To Do By Id With Validator (just guid validaion inside api definition) - done
+7b. Add filters for /todo endpoint (by Completed) - in progress
+7c. Write validator for create to do. - done
 8. Add other usecases (Complete to do, uncomplete, delete )
 9. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
 10. Write first aspect (start with Exception Handling)
@@ -40,7 +41,9 @@ Decision (notes):
 Validation:
 - domain validation should check business invariants. That means, if you need to validate a string lenght you need ask yourself why you would like to do it.
   a) if you got special values like credit card number, of course lenght is first and important business rule and should be in Domain layer
-  b) if you want to limit number of characters for UI purposes, like in ToDo Title lenght, it should be done in application layer. Why in Application Layer instead of API?
+  b) if you want to
+  
+   limit number of characters for UI purposes, like in ToDo Title lenght, it should be done in application layer. Why in Application Layer instead of API?
   Imagine case when you expose fill some form by UI but then you will allow users also send this same form using Email. Validation of input paramteres will be the same, but in case of Email, API will be not involved anymore
 
 
