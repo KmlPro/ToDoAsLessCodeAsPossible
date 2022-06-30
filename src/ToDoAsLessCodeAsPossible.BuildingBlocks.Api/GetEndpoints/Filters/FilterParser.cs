@@ -1,6 +1,6 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries.Filters;
 
-namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints;
+namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints.Filters;
 
 public static class FilterParser
 {
@@ -14,7 +14,7 @@ public static class FilterParser
         if (string.IsNullOrEmpty(filters))
             return null;
         
-        var filterFields = new List<FilterField>();
+        var filterFields = new List<QueryFilterField>();
         
         var splittedFilters = filters.Split("&");
         //TO DO Validation
@@ -35,7 +35,7 @@ public static class FilterParser
             var operatorName = filter.Substring(indexOfOperatorNameStarts, conditionLenght);
             var filterValue = filter.Substring(indexOfFilterValueStarts, filterValueLenght);
             
-            filterFields.Add(new FilterField(fieldName, operatorName, filterValue));
+            filterFields.Add(new QueryFilterField(fieldName, operatorName, filterValue));
         }
 
         return new QueryFilter(filterFields);

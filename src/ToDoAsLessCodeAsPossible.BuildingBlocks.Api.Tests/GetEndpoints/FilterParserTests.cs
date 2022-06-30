@@ -1,6 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints.Filters;
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.Tests.GetEndpoints;
 
