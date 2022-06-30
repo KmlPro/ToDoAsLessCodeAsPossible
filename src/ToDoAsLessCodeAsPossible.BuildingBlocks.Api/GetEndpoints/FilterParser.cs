@@ -19,12 +19,12 @@ public static class FilterParser
             var indexOfOperatorNameStarts = indexOfBeginSquareBrackets + 1;
             var indexOfFilterValueStarts = indexOfEqualMark + 1;
 
-            var fieldNameLenght = indexOfBeginSquareBrackets + 1;
-            var operatorLenght = indexOfEndSquareBrackets - indexOfBeginSquareBrackets;
+            var fieldNameLenght = indexOfBeginSquareBrackets;
+            var conditionLenght = indexOfEndSquareBrackets - indexOfBeginSquareBrackets - 1;
             var filterValueLenght = filter.Length - indexOfFilterValueStarts;
 
             var fieldName = filter.Substring(0, fieldNameLenght);
-            var operatorName = filter.Substring(indexOfOperatorNameStarts, operatorLenght);
+            var operatorName = filter.Substring(indexOfOperatorNameStarts, conditionLenght);
             var filterValue = filter.Substring(indexOfFilterValueStarts, filterValueLenght);
             
             filterFields.Add(new FilterField(fieldName, operatorName, filterValue));
