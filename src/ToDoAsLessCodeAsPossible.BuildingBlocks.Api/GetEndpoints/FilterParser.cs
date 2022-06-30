@@ -4,8 +4,16 @@ namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints;
 
 public static class FilterParser
 {
-    public static QueryFilter Parse(string filters)
+    /// <summary>
+    /// Return null if filters param is null or empty
+    /// </summary>
+    /// <param name="filters"></param>
+    /// <returns></returns>
+    public static QueryFilter? Parse(string? filters)
     {
+        if (string.IsNullOrEmpty(filters))
+            return null;
+        
         var filterFields = new List<FilterField>();
         
         var splittedFilters = filters.Split("&");
