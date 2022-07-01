@@ -8,7 +8,7 @@ namespace ToDoAsLessCodeAsPossible.Api.UseCases.GetAllToDos;
 
 public static class Endpoint
 {
-    private static readonly FilterDefinition FilterDefinition = new FilterDefinition(new List<FilterDefinitionField>()
+    private static readonly FilterDefinition FilterDefinition = new(new List<FilterDefinitionField>()
     {
         new("title", new List<string>() { "eq" })
     });
