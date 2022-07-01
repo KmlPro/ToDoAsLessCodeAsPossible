@@ -1,6 +1,5 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries.Filters;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints.Filters;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Api.GetEndpoints.Filters.Validator;
 using ToDoAsLessCodeAsPossible.UseCases.Queries.GetAllToDo;
