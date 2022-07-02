@@ -21,7 +21,8 @@ internal class GetAllToDoHandler : IQueryHandler<GetAllToDo, IEnumerable<ToDoDto
     {
         _queryBuilder.WithBaseQuery("select Id, Title, IsCompleted from ToDo");
         _queryBuilder.WithFieldMapping("title", "Title");
-        
+        _queryBuilder.WithFieldMapping("completed", "IsCompleted");
+
         if (query.QueryFilter != null)
         {
             _queryBuilder.WithQueryFilter(query.QueryFilter);

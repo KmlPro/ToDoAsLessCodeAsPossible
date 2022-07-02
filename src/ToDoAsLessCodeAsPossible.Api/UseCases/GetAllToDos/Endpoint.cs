@@ -10,7 +10,8 @@ public static class Endpoint
 {
     private static readonly FilterDefinition FilterDefinition = new(new List<FilterDefinitionField>()
     {
-        new("title", new List<string>() { "eq" })
+        new("title", new List<string>() { "eq" }),
+        new("completed", new List<string>() { "eq" })
     });
     
     public static void GetAllToDoEndpoint(this WebApplication app)

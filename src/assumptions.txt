@@ -13,7 +13,7 @@ Things To Do!
 6. Add persistance layer (with transactional support) (InMemory and real Sqlite, Tables configuration) - done
 7. Add UseCase Get All To Dos Dapper support (Raw query support) - done
 7a. Add UseCase Get To Do By Id With Validator (just guid validaion inside api definition) - done
-7b. Add filters for /todo endpoint (by Completed) - in progress
+7b. Add filters for /todo endpoint (by Completed) - done (not ideal way but now it is working)
 7c. Write validator for create to do. - done
 8. Add other usecases (Complete to do, uncomplete, delete )
 9. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
