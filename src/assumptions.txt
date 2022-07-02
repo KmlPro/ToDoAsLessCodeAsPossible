@@ -15,15 +15,16 @@ Things To Do!
 7a. Add UseCase Get To Do By Id With Validator (just guid validaion inside api definition) - done
 7b. Add filters for /todo endpoint (by Completed) - done (not ideal way but now it is working)
 7c. Write validator for create to do. - done
-8. Add other usecases (Complete to do, uncomplete, delete )
-9. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
-10. Write first aspect (start with Exception Handling)
-11. Write other Aspects (Logging and Caching)
-12. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
-13. Code style (.editorConfig)
-14. Add documentation for project
-14. Write tests for Domain and UseCase Layer
-15. Query handler without specify types
+8. Move repository somewhere.
+9. Add other usecases (Complete to do, uncomplete, delete ) 
+10. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
+11. Write first aspect (start with Exception Handling)
+12. Write other Aspects (Logging and Caching)
+13. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
+14. Code style (.editorConfig)
+15. Add documentation for project
+16. Write tests for Domain and UseCase Layer
+17. Query handler without specify types
 
 
 Decision (notes):
