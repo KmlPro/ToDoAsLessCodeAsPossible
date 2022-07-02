@@ -5,7 +5,7 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries.Filters.Excep
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Sql.Filter;
 
 //kbytner 2.07.2022 - it is only mvp, there is a lack of field type, enums etc
-public class SqlQueryBuilder : IQueryBuilder
+public class SqlLiteQueryBuilder : IQueryBuilder
 {
     private readonly Dictionary<string, string> ConditionMappings = new()
         { { "eq", "=" } };
@@ -14,7 +14,7 @@ public class SqlQueryBuilder : IQueryBuilder
     private string BaseQuery { get; set; }
     private QueryFilter QueryFilter { get; set; }
 
-    public SqlQueryBuilder()
+    public SqlLiteQueryBuilder()
     {
         FieldMappings = new Dictionary<string, string>();
         QueryFilter = new QueryFilter(new List<QueryFilterField>());

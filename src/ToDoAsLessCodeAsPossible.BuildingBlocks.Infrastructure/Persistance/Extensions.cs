@@ -32,7 +32,7 @@ public static class Extensions
 
         //kbytner 13.03.2022 - temporary solution 
         services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor(InMemorySqliteConfigurationFactory.ConnectionString));
-        services.AddScoped<IQueryBuilder, SqlQueryBuilder>();
+        services.AddScoped<IQueryBuilder, SqlLiteQueryBuilder>();
 
         return services;
     }
@@ -50,7 +50,7 @@ public static class Extensions
             new UnitOfWork(services.GetRequiredService<TDbContext>()));
 
         services.AddScoped<ISqlQueryExecutor>(x => new SqlQueryExecutor(parameters.ConnectionString));
-        services.AddScoped<IQueryBuilder, SqlQueryBuilder>();
+        services.AddScoped<IQueryBuilder, SqlLiteQueryBuilder>();
 
         return services;
     }

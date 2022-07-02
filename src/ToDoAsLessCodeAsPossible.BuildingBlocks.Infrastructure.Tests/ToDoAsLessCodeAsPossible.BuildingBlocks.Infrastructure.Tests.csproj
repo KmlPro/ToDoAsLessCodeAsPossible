@@ -12,4 +12,8 @@
       <PackageReference Include="Shouldly" Version="4.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure\ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
