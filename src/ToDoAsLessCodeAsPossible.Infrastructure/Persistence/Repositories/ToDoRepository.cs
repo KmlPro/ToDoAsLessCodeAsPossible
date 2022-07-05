@@ -1,6 +1,6 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Sql;
-using ToDoAsLessCodeAsPossible.Domain.Entity;
 using ToDoAsLessCodeAsPossible.Domain.Repository;
+using ToDoAsLessCodeAsPossible.Domain.ToDos;
 
 namespace ToDoAsLessCodeAsPossible.Infrastructure.Persistence.Repositories;
 

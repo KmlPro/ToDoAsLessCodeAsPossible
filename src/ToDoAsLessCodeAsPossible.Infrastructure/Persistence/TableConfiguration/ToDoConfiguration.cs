@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ToDoAsLessCodeAsPossible.Domain.Entity;
+using ToDoAsLessCodeAsPossible.Domain.ToDos;
 
 namespace ToDoAsLessCodeAsPossible.Infrastructure.Persistence.TableConfiguration;
 

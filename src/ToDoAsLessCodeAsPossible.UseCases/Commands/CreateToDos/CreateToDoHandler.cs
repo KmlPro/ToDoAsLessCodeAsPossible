@@ -1,6 +1,6 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-using ToDoAsLessCodeAsPossible.Domain.Entity;
 using ToDoAsLessCodeAsPossible.Domain.Repository;
+using ToDoAsLessCodeAsPossible.Domain.ToDos;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDos;
 

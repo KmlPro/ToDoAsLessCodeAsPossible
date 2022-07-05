@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ToDoAsLessCodeAsPossible.Domain.Entity;
+using ToDoAsLessCodeAsPossible.Domain.ToDos;
 using ToDoAsLessCodeAsPossible.Infrastructure.Persistence.TableConfiguration;
 
 namespace ToDoAsLessCodeAsPossible.Infrastructure.Persistence;

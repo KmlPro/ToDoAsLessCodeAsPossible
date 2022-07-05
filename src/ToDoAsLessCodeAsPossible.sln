@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Tests", "ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Tests\ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Tests.csproj", "{63AFD63B-A074-49F8-8FC2-6051033D85D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5A5D6EBC-4ABD-4D6F-A812-0E6AB4F2AB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Api.Tests", "ToDoAsLessCodeAsPossible.Api.Tests\ToDoAsLessCodeAsPossible.Api.Tests.csproj", "{B1B18A75-B867-48B5-A2A2-E38154157616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,10 @@ Global
 		{63AFD63B-A074-49F8-8FC2-6051033D85D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63AFD63B-A074-49F8-8FC2-6051033D85D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63AFD63B-A074-49F8-8FC2-6051033D85D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B18A75-B867-48B5-A2A2-E38154157616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B18A75-B867-48B5-A2A2-E38154157616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B18A75-B867-48B5-A2A2-E38154157616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B18A75-B867-48B5-A2A2-E38154157616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FB325CE4-0523-4130-97D4-4D4C1068A8E4} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
@@ -72,5 +80,6 @@ Global
 		{104A4329-CDD6-4848-909D-88F37640690B} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
 		{77A2ECC6-76EF-43D5-BC2F-5EAE9D3A440C} = {104A4329-CDD6-4848-909D-88F37640690B}
 		{63AFD63B-A074-49F8-8FC2-6051033D85D7} = {104A4329-CDD6-4848-909D-88F37640690B}
+		{B1B18A75-B867-48B5-A2A2-E38154157616} = {5A5D6EBC-4ABD-4D6F-A812-0E6AB4F2AB5C}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-using ToDoAsLessCodeAsPossible.Domain.Entity;
+using ToDoAsLessCodeAsPossible.Domain.ToDos;
 
 namespace ToDoAsLessCodeAsPossible.Domain.Repository;
 
