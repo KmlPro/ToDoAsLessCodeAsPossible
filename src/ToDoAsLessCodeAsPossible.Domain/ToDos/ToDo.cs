@@ -2,7 +2,7 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Domain;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.ValueObjects;
 using ToDoAsLessCodeAsPossible.Domain.ToDos.Rules.CantCompleteAlreadyCompletedToDo;
-using ToDoAsLessCodeAsPossible.Domain.ToDos.Rules.CantUnCompleteAlreadyUnCompletedToDo;
+using ToDoAsLessCodeAsPossible.Domain.ToDos.Rules.CantMarkAsUncompletedAlreadyUncompleted;
 
 namespace ToDoAsLessCodeAsPossible.Domain.ToDos;
 
@@ -33,9 +33,9 @@ public class ToDo : Entity
         _isCompleted = true;
     }
 
-    public void UnComplete()
+    public void MarkAsUnCompleted()
     {
-        CheckRule(new CantUnCompleteAlreadyUnCompletedToDoRule(_isCompleted));
+        CheckRule(new CantMarkAsUncompletedAlreadyUncompletedRule(_isCompleted));
         _isCompleted = false;
     }
 
