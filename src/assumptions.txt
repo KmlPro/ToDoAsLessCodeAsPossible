@@ -16,7 +16,7 @@ Things To Do!
 7b. Add filters for /todo endpoint (by Completed) - done (not ideal way but now it is working)
 7c. Write validator for create to do. - done
 8. Move repository somewhere. - DONE
-9. Add other usecases (Complete to do, uncomplete, delete ) - in progress
+9. Add other usecases (Complete to do, uncomplete, delete ) - done
 10. UseCase Layer Tests
 11. Reusable validators 
 12. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
