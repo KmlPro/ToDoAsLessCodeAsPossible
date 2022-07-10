@@ -1,3 +1,4 @@
+using ToDoAsLessCodeAsPossible.Api.UseCases.ChangeToDoTitles;
 using ToDoAsLessCodeAsPossible.Api.UseCases.CompleteToDos;
 using ToDoAsLessCodeAsPossible.Api.UseCases.CreateToDos;
 using ToDoAsLessCodeAsPossible.Api.UseCases.GetAllToDos;
@@ -15,5 +16,6 @@ public static class EndpointsConfiguration
         app.GetAllToDoEndpoint();
         app.CompleteToDoEndpoint();
         app.MarkToDoAsUncompletedEndpoint();
+        app.ChangeToDoTitleEndpoint();
     }
 }

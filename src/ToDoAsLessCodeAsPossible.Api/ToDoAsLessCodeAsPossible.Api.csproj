@@ -18,8 +18,4 @@
       <ProjectReference Include="..\ToDoAsLessCodeAsPossible.Infrastructure\ToDoAsLessCodeAsPossible.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="UseCases\ChangeToDoTitle" />
-    </ItemGroup>
-
 </Project>
