@@ -13,4 +13,9 @@ public class EntityId
     {
         return new EntityId(Guid.NewGuid());
     }
+    
+    public static EntityId Create(Guid id)
+    {
+        return new EntityId(id);
+    }
 }

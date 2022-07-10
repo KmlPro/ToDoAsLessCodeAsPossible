@@ -1,6 +1,6 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-using ToDoAsLessCodeAsPossible.Domain.Repository;
 using ToDoAsLessCodeAsPossible.Domain.ToDos;
+using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDos;
 
@@ -8,16 +8,16 @@ public record CreateToDo(string Title) : ICommand;
 
 internal class CreateToDoHandler : ICommandHandler<CreateToDo>
 {
-    private readonly IToDoRepository _toDoRepository;
+    private readonly IToDoWriteRepository _toDoWriteRepository;
 
-    public CreateToDoHandler(IToDoRepository toDoRepository)
+    public CreateToDoHandler(IToDoWriteRepository toDoWriteRepository)
     {
-        _toDoRepository = toDoRepository;
+        _toDoWriteRepository = toDoWriteRepository;
     }
 
     public async Task HandleAsync(CreateToDo command, CancellationToken token)
     {
         var toDo = ToDo.Create(command.Title);
-        await _toDoRepository.AddAsync(toDo, token);
+        await _toDoWriteRepository.AddAsync(toDo, token);
     }
 }

@@ -1,5 +1,5 @@
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
-using ToDoAsLessCodeAsPossible.Domain.Repository;
+using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDos;
 
@@ -9,11 +9,11 @@ public class CreateToDoValidator : ICommandStructValidator<CreateToDo>, ICommand
     private const string TitleShouldContainsMoreThanCharacters = "Title can contains more than 5 characters";
     private const string ToDoWithSameTitleAlreadyExists = "Title with exactly same title already exist";
 
-    private readonly IToDoRepository _toDoRepository;
+    private readonly IToDoWriteRepository _toDoWriteRepository;
 
-    public CreateToDoValidator(IToDoRepository toDoRepository)
+    public CreateToDoValidator(IToDoWriteRepository toDoWriteRepository)
     {
-        _toDoRepository = toDoRepository;
+        _toDoWriteRepository = toDoWriteRepository;
     }
 
     public List<string> ValidateStruct(CreateToDo query)
@@ -36,7 +36,7 @@ public class CreateToDoValidator : ICommandStructValidator<CreateToDo>, ICommand
     {
         var errors = new List<string>();
 
-        var toDoWithSameTitleExists = await _toDoRepository.Exists(command.Title, cancellationToken);
+        var toDoWithSameTitleExists = await _toDoWriteRepository.ExistsAsync(command.Title, cancellationToken);
         if (toDoWithSameTitleExists)
         {
             errors.Add(ToDoWithSameTitleAlreadyExists);
