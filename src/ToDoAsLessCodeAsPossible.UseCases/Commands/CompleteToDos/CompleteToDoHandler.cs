@@ -2,7 +2,7 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.ValueObjects;
 using ToDoAsLessCodeAsPossible.UseCases.Services;
 
-namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CompleteToDo;
+namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CompleteToDos;
 
 public record CompleteToDo(Guid Id) : ICommand;
 

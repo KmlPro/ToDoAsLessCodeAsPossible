@@ -15,17 +15,14 @@ Things To Do!
 7a. Add UseCase Get To Do By Id With Validator (just guid validaion inside api definition) - done
 7b. Add filters for /todo endpoint (by Completed) - done (not ideal way but now it is working)
 7c. Write validator for create to do. - done
-8. Move repository somewhere.
-9. Add other usecases (Complete to do, uncomplete, delete ) 
-10. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
-11. Write first aspect (start with Exception Handling)
-12. Write other Aspects (Logging and Caching)
+8. Move repository somewhere. - DONE
+9. Add other usecases (Complete to do, uncomplete, delete ) - in progress
+10. UseCase Layer Tests
+11. Reusable validators 
+12. Write periodically job for fetching To Dos (Hangfire ? Or maybe other solution)
 13. Think about how to configure Infrastructure layer (how to make extensions like plugins and convey builder)
 14. Code style (.editorConfig)
 15. Add documentation for project
-16. Write tests for Domain and UseCase Layer
-17. Query handler without specify types
-
 
 Decision (notes):
 - Create own command and query handling instead of using MediatR. I don't want to relay on external library (all stuffs that i need i can write by myself). 
@@ -37,16 +34,17 @@ Decision (notes):
 - Do not use Problem Details library for mapping exceptions to response
    - The main reason is that i don't want to include in all project that will use my mapping middleware dependecies from external Library.
    - With my own code it's easy to create default rules for mapping and ovveride it in easy way
-
+- Do not use Aspects in this project
+   - There is no open source library that will help write Aspects
+   - There is a Post Sharp library that will fit my needs, but it is paid one so I won't use it
+   - Decorators are enough for my use cases
 
 Validation:
 - domain validation should check business invariants. That means, if you need to validate a string lenght you need ask yourself why you would like to do it.
   a) if you got special values like credit card number, of course lenght is first and important business rule and should be in Domain layer
-  b) if you want to
-  
-   limit number of characters for UI purposes, like in ToDo Title lenght, it should be done in application layer. Why in Application Layer instead of API?
+  b) if you want to limit number of characters for UI purposes, like in ToDo Title lenght, it should be done in application layer. Why in Application Layer instead of API?
   Imagine case when you expose fill some form by UI but then you will allow users also send this same form using Email. Validation of input paramteres will be the same, but in case of Email, API will be not involved anymore
 
 
-Why I created separated request representation instead of using directly Command? 
+- Why I created separated request representation instead of using directly Command? 
 Separation of concerns, If i decide to add swagger adnnotations for make better specification then I don't put this information inside Application Logic

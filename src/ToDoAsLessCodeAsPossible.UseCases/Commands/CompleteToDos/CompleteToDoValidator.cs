@@ -2,9 +2,9 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.ValueObjects;
 using ToDoAsLessCodeAsPossible.UseCases.Services;
 
-namespace ToDoAsLessCodeAsPossible.UseCases.Commands.MarkToDoAsUnCompleted;
+namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CompleteToDos;
 
-public class CompleteToDoValidator : ICommandRulesValidator<MarkToDoAsUnCompleted>
+public class CompleteToDoValidator : ICommandRulesValidator<CompleteToDo>
 {
     private const string ToDoNotExists = "To Do with given id does not exist or has been deleted. Id: ";
 
@@ -15,7 +15,7 @@ public class CompleteToDoValidator : ICommandRulesValidator<MarkToDoAsUnComplete
         _toDoWriteRepository = toDoWriteRepository;
     }
 
-    public async Task<List<string>> ValidateUseCaseRules(MarkToDoAsUnCompleted command, CancellationToken cancellationToken)
+    public async Task<List<string>> ValidateUseCaseRules(CompleteToDo command, CancellationToken cancellationToken)
     {
         var errors = new List<string>();
 

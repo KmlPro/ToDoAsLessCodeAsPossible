@@ -2,24 +2,24 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.ValueObjects;
 using ToDoAsLessCodeAsPossible.UseCases.Services;
 
-namespace ToDoAsLessCodeAsPossible.UseCases.Commands.MarkToDoAsUnCompleted;
+namespace ToDoAsLessCodeAsPossible.UseCases.Commands.ChangeToDoTitles;
 
-public record MarkToDoAsUnCompleted(Guid Id) : ICommand;
+public record ChangeToDoTitle(Guid Id, string Title) : ICommand;
 
-internal class MarkToDoAsUnCompletedHandler : ICommandHandler<MarkToDoAsUnCompleted>
+internal class ChangeToDoTitleHandler : ICommandHandler<ChangeToDoTitle>
 {
     private readonly IToDoWriteRepository _toDoWriteRepository;
 
-    public MarkToDoAsUnCompletedHandler(IToDoWriteRepository toDoWriteRepository)
+    public ChangeToDoTitleHandler(IToDoWriteRepository toDoWriteRepository)
     {
         _toDoWriteRepository = toDoWriteRepository;
     }
 
-    public async Task HandleAsync(MarkToDoAsUnCompleted command, CancellationToken token)
+    public async Task HandleAsync(ChangeToDoTitle command, CancellationToken token)
     {
         var entityId = EntityId.Create(command.Id);
         
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
-        toDo.MarkAsUnCompleted();
+        toDo.ChangeTitle(command.Title);
     }
 }

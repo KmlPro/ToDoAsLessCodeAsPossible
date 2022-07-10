@@ -1,6 +1,8 @@
+using ToDoAsLessCodeAsPossible.Api.UseCases.CompleteToDos;
 using ToDoAsLessCodeAsPossible.Api.UseCases.CreateToDos;
 using ToDoAsLessCodeAsPossible.Api.UseCases.GetAllToDos;
 using ToDoAsLessCodeAsPossible.Api.UseCases.GetToDos;
+using ToDoAsLessCodeAsPossible.Api.UseCases.MarkToDoAsUncompleteds;
 
 namespace ToDoAsLessCodeAsPossible.Api;
 
@@ -11,5 +13,7 @@ public static class EndpointsConfiguration
         app.CreateToDoEndpoint();
         app.GetToDoEndpoint();
         app.GetAllToDoEndpoint();
+        app.CompleteToDoEndpoint();
+        app.MarkToDoAsUncompletedEndpoint();
     }
 }

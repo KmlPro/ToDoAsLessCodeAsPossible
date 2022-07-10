@@ -2,7 +2,7 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.ValueObjects;
 using ToDoAsLessCodeAsPossible.UseCases.Services;
 
-namespace ToDoAsLessCodeAsPossible.UseCases.Commands.ChangeToDoTitle;
+namespace ToDoAsLessCodeAsPossible.UseCases.Commands.ChangeToDoTitles;
 
 public class ChangeToDoTitleValidator : ICommandRulesValidator<ChangeToDoTitle>, ICommandStructValidator<ChangeToDoTitle>
 {
