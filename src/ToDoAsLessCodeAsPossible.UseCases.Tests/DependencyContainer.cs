@@ -1,7 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.InMemory;
 using ToDoAsLessCodeAsPossible.Infrastructure;
+using ToDoAsLessCodeAsPossible.Infrastructure.Persistence;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Tests;
 
@@ -14,8 +17,7 @@ public class DependencyContainer
     {
         _services = new ServiceCollection();
         _services.AddInfrastructure();
-        
-        //TO DO Add configuration for in memory database
+        _services.AddInMemoryDatabase<ToDoWriteDbContext>(new InMemoryDatabaseParameters(InMemoryDatabaseProvider.Sqlite));
     }
 
     public void BuildContainer()
