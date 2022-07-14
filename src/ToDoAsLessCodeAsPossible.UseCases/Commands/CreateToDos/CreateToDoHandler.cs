@@ -15,9 +15,11 @@ internal class CreateToDoHandler : ICommandHandler<CreateToDo>
         _toDoWriteRepository = toDoWriteRepository;
     }
 
-    public async Task HandleAsync(CreateToDo command, CancellationToken token)
+    public async Task<CommandResult> HandleAsync(CreateToDo command, CancellationToken token)
     {
         var toDo = ToDo.Create(command.Title);
         await _toDoWriteRepository.AddAsync(toDo, token);
+        
+        return new CommandResult(toDo.Id.Value.ToString());
     }
 }

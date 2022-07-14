@@ -18,7 +18,7 @@ public class ToDoMarkAsUncompletedTests
         toDo.MarkAsUnCompleted();
         
         //Assert
-        toDo.GetPrivateValue<bool>("_isCompleted").ShouldBe(false);
+        toDo.IsCompleted.ShouldBe(false);
     }
     
     [Test]

@@ -13,7 +13,7 @@ public class ValidationCommandPipelineBehavior: ICommandPipelineBehavior
         _serviceFactory = serviceFactory;
     }
     
-    public async Task HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
+    public async Task<CommandResult> HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
     {
         using var scope = _serviceFactory.CreateScope();
         var provider = scope.ServiceProvider;
@@ -30,7 +30,7 @@ public class ValidationCommandPipelineBehavior: ICommandPipelineBehavior
             throw new CommandRulesBrokenException(useCaseRulesValidationResult);
         }
         
-        await next().ConfigureAwait(false);
+        return await next().ConfigureAwait(false);
     }
 
     private List<string> ValidateStruct<TCommand>(IServiceProvider provider, TCommand command) where TCommand : ICommand

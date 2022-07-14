@@ -1,9 +1,9 @@
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 
-public delegate Task CommandHandlerDelegate();
+public delegate Task<CommandResult> CommandHandlerDelegate();
 
 public interface ICommandPipelineBehavior
 {
-    Task HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next)
+    Task<CommandResult> HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next)
         where TCommand : ICommand;
 }

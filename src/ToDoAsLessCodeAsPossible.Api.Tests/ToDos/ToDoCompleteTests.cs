@@ -17,7 +17,7 @@ public class ToDoCompleteTests
         toDo.Complete();
         
         //Assert
-        toDo.GetPrivateValue<bool>("_isCompleted").ShouldBe(true);
+        toDo.IsCompleted.ShouldBe(true);
     }
     
     [Test]

@@ -15,11 +15,13 @@ internal class ChangeToDoTitleHandler : ICommandHandler<ChangeToDoTitle>
         _toDoWriteRepository = toDoWriteRepository;
     }
 
-    public async Task HandleAsync(ChangeToDoTitle command, CancellationToken token)
+    public async Task<CommandResult> HandleAsync(ChangeToDoTitle command, CancellationToken token)
     {
         var entityId = EntityId.Create(command.Id);
         
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.ChangeTitle(command.Title);
+
+        return new CommandResult(entityId.Value.ToString());
     }
 }

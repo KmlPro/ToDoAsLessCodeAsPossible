@@ -15,11 +15,13 @@ internal class CompleteToDoHandler : ICommandHandler<CompleteToDo>
         _toDoWriteRepository = toDoWriteRepository;
     }
 
-    public async Task HandleAsync(CompleteToDo command, CancellationToken token)
+    public async Task<CommandResult> HandleAsync(CompleteToDo command, CancellationToken token)
     {
         var entityId = EntityId.Create(command.Id);
         
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.Complete();
+        
+        return new CommandResult(entityId.Value.ToString());
     }
 }

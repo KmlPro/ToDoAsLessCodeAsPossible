@@ -9,16 +9,16 @@ namespace ToDoAsLessCodeAsPossible.Domain.ToDos;
 public class ToDo : Entity
 {
     public EntityId Id { get; }
-    private string _title;
-    private bool _isCompleted;
+    public string Title { get; private set; }
+    public bool IsCompleted { get; private set; }
 
     private ToDo(EntityId id, string title)
     {
         Ensure.That(title, nameof(title)).IsNotNullOrWhiteSpace();
 
         Id = id;
-        _title = title;
-        _isCompleted = false;
+        Title = title;
+        IsCompleted = false;
     }
 
     public static ToDo Create(string title)
@@ -29,19 +29,19 @@ public class ToDo : Entity
 
     public void Complete()
     {
-        CheckRule(new CantCompleteAlreadyCompletedToDoRule(_isCompleted));
-        _isCompleted = true;
+        CheckRule(new CantCompleteAlreadyCompletedToDoRule(IsCompleted));
+        IsCompleted = true;
     }
 
     public void MarkAsUnCompleted()
     {
-        CheckRule(new CantMarkAsUncompletedAlreadyUncompletedRule(_isCompleted));
-        _isCompleted = false;
+        CheckRule(new CantMarkAsUncompletedAlreadyUncompletedRule(IsCompleted));
+        IsCompleted = false;
     }
 
     public void ChangeTitle(string title)
     {
         Ensure.That(title, nameof(title)).IsNotNullOrWhiteSpace();
-        _title = title;
+        Title = title;
     }
 }
