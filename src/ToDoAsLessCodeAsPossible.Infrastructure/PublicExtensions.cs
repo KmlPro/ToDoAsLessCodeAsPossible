@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries;
