@@ -20,9 +20,11 @@ public class DependencyContainer
         _services.AddInMemoryDatabase<ToDoWriteDbContext>(new InMemoryDatabaseParameters(InMemoryDatabaseProvider.Sqlite));
     }
 
-    public void BuildContainer()
+    public void BuildContainerAndSetupDatabase()
     {
         _provider = _services.BuildServiceProvider();
+        
+        DatabaseCreator.CreateDatabaseSchema(_provider);
     }
 
     public void RegisterMockType<TType>(object instance) where TType: class

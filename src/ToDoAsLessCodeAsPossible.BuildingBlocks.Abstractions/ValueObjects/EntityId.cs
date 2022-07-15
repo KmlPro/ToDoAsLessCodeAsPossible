@@ -4,7 +4,7 @@ public class EntityId
 {
     public Guid Value { get; }
     
-    private EntityId(Guid guid)
+    public EntityId(Guid guid)
     {
         Value = guid;
     }
@@ -12,10 +12,5 @@ public class EntityId
     public static EntityId Create()
     {
         return new EntityId(Guid.NewGuid());
-    }
-    
-    public static EntityId Create(Guid id)
-    {
-        return new EntityId(id);
     }
 }

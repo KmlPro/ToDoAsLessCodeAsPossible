@@ -17,7 +17,7 @@ internal class MarkToDoAsUncompletedHandler : ICommandHandler<MarkToDoAsUncomple
 
     public async Task<CommandResult> HandleAsync(MarkToDoAsUncompleted command, CancellationToken token)
     {
-        var entityId = EntityId.Create(command.Id);
+        var entityId = new EntityId(command.Id);
         
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.MarkAsUnCompleted();

@@ -17,7 +17,7 @@ internal class CompleteToDoHandler : ICommandHandler<CompleteToDo>
 
     public async Task<CommandResult> HandleAsync(CompleteToDo command, CancellationToken token)
     {
-        var entityId = EntityId.Create(command.Id);
+        var entityId = new EntityId(command.Id);
         
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.Complete();

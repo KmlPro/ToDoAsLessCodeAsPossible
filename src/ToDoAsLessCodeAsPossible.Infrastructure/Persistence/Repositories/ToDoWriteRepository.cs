@@ -16,7 +16,7 @@ internal class ToDoWriteRepository : IToDoWriteRepository
 
     public async Task<ToDo> GetAsync(EntityId id, CancellationToken token)
     {
-        var toDo = await _writeDbContext.ToDo.FindAsync(id, token);
+        var toDo = await _writeDbContext.ToDo.FindAsync(id);
         //TO do add dedicated exception
         return toDo!;
     }
@@ -28,7 +28,7 @@ internal class ToDoWriteRepository : IToDoWriteRepository
 
     public async Task<bool> ExistsAsync(string title, CancellationToken token)
     {
-        var exists = await _writeDbContext.ToDo.AnyAsync(a => EF.Property<string>(a, "_title") == title, token);
+        var exists = await _writeDbContext.ToDo.AnyAsync(a => a.Title == title, token);
         return exists;
     }
 

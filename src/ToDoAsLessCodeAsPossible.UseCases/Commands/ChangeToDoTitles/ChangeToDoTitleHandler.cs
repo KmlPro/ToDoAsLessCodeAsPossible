@@ -17,7 +17,7 @@ internal class ChangeToDoTitleHandler : ICommandHandler<ChangeToDoTitle>
 
     public async Task<CommandResult> HandleAsync(ChangeToDoTitle command, CancellationToken token)
     {
-        var entityId = EntityId.Create(command.Id);
+        var entityId = new EntityId(command.Id);
         
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.ChangeTitle(command.Title);

@@ -19,7 +19,7 @@ public class CompleteToDoValidator : ICommandRulesValidator<CompleteToDo>
     {
         var errors = new List<string>();
 
-        var entityId = EntityId.Create(command.Id);
+        var entityId = new EntityId(command.Id);
         var isExists = await _toDoWriteRepository.ExistsAsync(entityId, cancellationToken);
         if (!isExists)
         {
