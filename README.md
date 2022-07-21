@@ -40,9 +40,7 @@ Domain validation should check business invariants. That means, if you need to v
 
   a) if you got special values like credit card number, of course lenght is first and important business rule and should be in Domain layer
   
-  b) if you want to limit number of characters for UI purposes, like in ToDo Title lenght, it should be done in application layer. Why in Application Layer instead of API?
-  
-Imagine case when you create feature that allows user fill form by UI but then you need to allow users also send the same form using Email. Validation of input paramteres will be the same, but in case of Email, API will be not involved anymore
+  b) if you want to limit number of characters for UI purposes, like in ToDo Title lenght, it should be done in application layer. Why in Application Layer instead of API? Imagine case when you create feature that allows user fill form by UI but then you need to allow users also send the same form using Email. Validation of input paramteres will be the same, but in case of Email, API will be not involved anymore
   
 ### Separated request Dtos instead of using directly Command in Api project
 
