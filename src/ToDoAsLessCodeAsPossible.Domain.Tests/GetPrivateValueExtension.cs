@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace ToDoAsLessCodeAsPossible.Api.Tests;
+namespace ToDoAsLessCodeAsPossible.Domain.Tests;
 
 public static class GetPrivateValueExtension
 {

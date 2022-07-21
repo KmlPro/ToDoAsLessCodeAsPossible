@@ -2,7 +2,7 @@ using NUnit.Framework;
 using Shouldly;
 using ToDoAsLessCodeAsPossible.Domain.ToDos;
 
-namespace ToDoAsLessCodeAsPossible.Api.Tests.ToDos;
+namespace ToDoAsLessCodeAsPossible.Domain.Tests.ToDos;
 
 public class ToDoChangeTitleTests
 {

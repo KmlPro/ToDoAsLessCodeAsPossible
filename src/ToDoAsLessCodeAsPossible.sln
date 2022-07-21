@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Bu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5A5D6EBC-4ABD-4D6F-A812-0E6AB4F2AB5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Api.Tests", "ToDoAsLessCodeAsPossible.Api.Tests\ToDoAsLessCodeAsPossible.Api.Tests.csproj", "{B1B18A75-B867-48B5-A2A2-E38154157616}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Domain.Tests", "ToDoAsLessCodeAsPossible.Domain.Tests\ToDoAsLessCodeAsPossible.Domain.Tests.csproj", "{B1B18A75-B867-48B5-A2A2-E38154157616}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.UseCases.Tests", "ToDoAsLessCodeAsPossible.UseCases.Tests\ToDoAsLessCodeAsPossible.UseCases.Tests.csproj", "{93A6D471-E1A5-4A36-9A90-7AF88347637F}"
 EndProject

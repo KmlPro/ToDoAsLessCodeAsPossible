@@ -3,7 +3,7 @@ using Shouldly;
 using ToDoAsLessCodeAsPossible.Domain.ToDos;
 using ToDoAsLessCodeAsPossible.Domain.ToDos.Rules.CantCompleteAlreadyCompletedToDo;
 
-namespace ToDoAsLessCodeAsPossible.Api.Tests.ToDos;
+namespace ToDoAsLessCodeAsPossible.Domain.Tests.ToDos;
 
 public class ToDoCompleteTests
 {

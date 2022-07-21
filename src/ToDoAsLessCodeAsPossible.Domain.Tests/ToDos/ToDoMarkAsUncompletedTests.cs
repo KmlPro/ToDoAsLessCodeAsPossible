@@ -3,7 +3,7 @@ using Shouldly;
 using ToDoAsLessCodeAsPossible.Domain.ToDos;
 using ToDoAsLessCodeAsPossible.Domain.ToDos.Rules.CantMarkAsUncompletedAlreadyUncompleted;
 
-namespace ToDoAsLessCodeAsPossible.Api.Tests.ToDos;
+namespace ToDoAsLessCodeAsPossible.Domain.Tests.ToDos;
 
 public class ToDoMarkAsUncompletedTests
 {
