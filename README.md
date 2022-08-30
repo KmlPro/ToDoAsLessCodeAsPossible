@@ -7,7 +7,7 @@
 
 ## Project Domain
 
-It's simple To Do solution, when user can create 'to dos' and mark them as completed. To Dos are periodicaly created based on Task from **Supervisor system and Bug Tracker**. 
+It's simple To Do solution, when user can create 'to dos', mark them as completed/uncompleted and change title. 
 
 ![TODo Domain](./docs/ToDo_Domain.png)
 

@@ -37,5 +37,4 @@ public class CreateToDoHandlerTests
         result.Id.ShouldNotBeNull();
         toDo.ShouldNotBeNull();
     }
-    
 }
