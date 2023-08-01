@@ -17,22 +17,22 @@ public static class Extensions
     {
         services
             .AddPipeline()
-            .AddInput(typeof(ICommand))
-            .AddHandler(typeof(ICommandHandler<>), assembly)
+            .AddInput(typeof(ICommand<>))
+            .AddHandler(typeof(ICommandHandler<,>), assembly)
             .AddDispatcher<ICommandDispatcher>()
-            .WithOpenTypeDecorator(typeof(ValidationCommandPipelineBehavior))
-            .WithOpenTypeDecorator(typeof(UnitOfWorkCommandPipelineBehavior))
+            .WithOpenTypeDecorator(typeof(ValidationCommandPipelineBehavior<,>))
+            .WithOpenTypeDecorator(typeof(UnitOfWorkCommandPipelineBehavior<,>))
             .Build();
 
         services.Scan(s => s.FromAssemblies(assembly)
             .AddClasses(classes => 
-                classes.AssignableTo(typeof(ICommandRulesValidator<>)).Where(_ => !_.IsGenericType))
+                classes.AssignableTo(typeof(ICommandRulesValidator<,>)).Where(_ => !_.IsGenericType))
             .AsImplementedInterfaces()
             .WithScopedLifetime());
         
         services.Scan(s => s.FromAssemblies(assembly)
             .AddClasses(classes => 
-                classes.AssignableTo(typeof(ICommandStructValidator<>)).Where(_ => !_.IsGenericType))
+                classes.AssignableTo(typeof(ICommandStructValidator<,>)).Where(_ => !_.IsGenericType))
             .AsImplementedInterfaces()
             .WithScopedLifetime());
 

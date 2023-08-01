@@ -1,3 +1,3 @@
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 
-public interface ICommand { }
+public interface ICommand<TResult> where TResult : CommandResult{ }

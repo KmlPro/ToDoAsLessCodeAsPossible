@@ -4,9 +4,9 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.ChangeToDoTitles;
 
-public record ChangeToDoTitle(Guid Id, string Title) : ICommand;
+public record ChangeToDoTitle(Guid Id, string Title) : ICommand<CommandResult>;
 
-internal class ChangeToDoTitleHandler : ICommandHandler<ChangeToDoTitle>
+internal class ChangeToDoTitleHandler : ICommandHandler<ChangeToDoTitle, CommandResult>
 {
     private readonly IToDoWriteRepository _toDoWriteRepository;
 
@@ -18,7 +18,7 @@ internal class ChangeToDoTitleHandler : ICommandHandler<ChangeToDoTitle>
     public async Task<CommandResult> HandleAsync(ChangeToDoTitle command, CancellationToken token)
     {
         var entityId = new EntityId(command.Id);
-        
+
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.ChangeTitle(command.Title);
 

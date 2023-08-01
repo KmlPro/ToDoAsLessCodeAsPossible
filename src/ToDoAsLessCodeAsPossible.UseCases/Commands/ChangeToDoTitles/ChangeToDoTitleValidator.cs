@@ -4,7 +4,8 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.ChangeToDoTitles;
 
-public class ChangeToDoTitleValidator : ICommandRulesValidator<ChangeToDoTitle>, ICommandStructValidator<ChangeToDoTitle>
+public class ChangeToDoTitleValidator : ICommandRulesValidator<ChangeToDoTitle, CommandResult>,
+    ICommandStructValidator<ChangeToDoTitle, CommandResult>
 {
     private const string ToDoNotExists = "To Do with given id does not exist or has been deleted. Id: ";
     private const string TitleCannotBeEmpty = "Title can not be empty string";
@@ -28,7 +29,7 @@ public class ChangeToDoTitleValidator : ICommandRulesValidator<ChangeToDoTitle>,
         {
             errors.Add(ToDoNotExists + command.Id);
         }
-        
+
         var toDoWithSameTitleExists = await _toDoWriteRepository.ExistsAsync(command.Title, cancellationToken);
         if (toDoWithSameTitleExists)
         {
@@ -41,7 +42,7 @@ public class ChangeToDoTitleValidator : ICommandRulesValidator<ChangeToDoTitle>,
     public List<string> ValidateStruct(ChangeToDoTitle query)
     {
         var errors = new List<string>();
-        
+
         if (string.IsNullOrEmpty(query.Title))
         {
             errors.Add(TitleCannotBeEmpty);

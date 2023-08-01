@@ -3,7 +3,8 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDos;
 
-internal class CreateToDoValidator : ICommandStructValidator<CreateToDo>, ICommandRulesValidator<CreateToDo>
+internal class CreateToDoValidator : ICommandStructValidator<CreateToDo, CommandResult>,
+    ICommandRulesValidator<CreateToDo, CommandResult>
 {
     private const string TitleCannotBeEmpty = "Title can not be empty string";
     private const string TitleShouldContainsMoreThanCharacters = "Title can contains more than 5 characters";
@@ -19,7 +20,7 @@ internal class CreateToDoValidator : ICommandStructValidator<CreateToDo>, IComma
     public List<string> ValidateStruct(CreateToDo query)
     {
         var errors = new List<string>();
-        
+
         if (string.IsNullOrEmpty(query.Title))
         {
             errors.Add(TitleCannotBeEmpty);

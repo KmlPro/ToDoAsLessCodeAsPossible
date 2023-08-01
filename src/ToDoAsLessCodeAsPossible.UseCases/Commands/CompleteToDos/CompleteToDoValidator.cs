@@ -4,7 +4,7 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CompleteToDos;
 
-public class CompleteToDoValidator : ICommandRulesValidator<CompleteToDo>
+public class CompleteToDoValidator : ICommandRulesValidator<CompleteToDo, CommandResult>
 {
     private const string ToDoNotExists = "To Do with given id does not exist or has been deleted. Id: ";
 
