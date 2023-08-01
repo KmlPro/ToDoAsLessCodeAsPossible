@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using Pipelines;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline.Validation;
@@ -14,16 +15,15 @@ public static class Extensions
     public static IServiceCollection AddCommands(this IServiceCollection services,
         Assembly assembly)
     {
-        services.AddScoped<ICommandDispatcher, CommandDispatcher>();
-        services.AddScoped<ICommandPipelineBehavior,UnitOfWorkCommandPipelineBehavior>();
-        services.AddScoped<ICommandPipelineBehavior,ValidationCommandPipelineBehavior>();
+        services
+            .AddPipeline()
+            .AddInput(typeof(ICommand))
+            .AddHandler(typeof(ICommandHandler<>), assembly)
+            .AddDispatcher<ICommandDispatcher>()
+            .WithOpenTypeDecorator(typeof(ValidationCommandPipelineBehavior))
+            .WithOpenTypeDecorator(typeof(UnitOfWorkCommandPipelineBehavior))
+            .Build();
 
-        services.Scan(s => s.FromAssemblies(assembly)
-            .AddClasses(classes => 
-                classes.AssignableTo(typeof(ICommandHandler<>)).Where(_ => !_.IsGenericType))
-            .AsImplementedInterfaces()
-            .WithScopedLifetime());
-        
         services.Scan(s => s.FromAssemblies(assembly)
             .AddClasses(classes => 
                 classes.AssignableTo(typeof(ICommandRulesValidator<>)).Where(_ => !_.IsGenericType))
