@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions\ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.csproj" />
-      <ProjectReference Include="..\ToDoAsLessCodeAsPossible.BuildingBlocks.Domain\ToDoAsLessCodeAsPossible.BuildingBlocks.Domain.csproj" />
     </ItemGroup>
 
 </Project>
