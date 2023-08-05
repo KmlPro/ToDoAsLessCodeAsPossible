@@ -6,7 +6,7 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Exceptions;
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Pipeline.Validation;
 
 public class ValidationQueryPipelineBehavior<TQuery, TResult> : IQueryHandler<TQuery, TResult>
-    where TQuery : IQuery<TResult>
+    where TQuery : IQuery<TResult> where TResult : class
 {
     private const string QUERY_VALIDATE_STRUCT_METHOD_NAME = "ValidateStruct";
     private const string QUERY_VALIDATE_USECASE_RULES_METHOD_NAME = "ValidateUseCaseRules";
