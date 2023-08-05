@@ -4,9 +4,9 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CreateToDos;
 
-public record CreateToDo(string Title) : ICommand;
+public record CreateToDo(string Title) : ICommand<CommandResult>;
 
-internal class CreateToDoHandler : ICommandHandler<CreateToDo>
+internal class CreateToDoHandler : ICommandHandler<CreateToDo, CommandResult>
 {
     private readonly IToDoWriteRepository _toDoWriteRepository;
 
@@ -19,7 +19,7 @@ internal class CreateToDoHandler : ICommandHandler<CreateToDo>
     {
         var toDo = ToDo.Create(command.Title);
         await _toDoWriteRepository.AddAsync(toDo, token);
-        
+
         return new CommandResult(toDo.Id.Value.ToString());
     }
 }

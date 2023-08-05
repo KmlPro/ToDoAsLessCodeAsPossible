@@ -1,5 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using Pipelines;
+using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Pipeline.Validation;
 
@@ -13,23 +15,22 @@ public static class Extensions
     public static IServiceCollection AddQueries(this IServiceCollection services,
         Assembly assembly)
     {
-        services.AddScoped<IQueryDispatcher, QueryDispatcher>();
-        services.AddScoped<IQueryPipelineBehavior,ValidationQueryPipelineBehavior>();
+        services
+            .AddPipeline()
+            .AddInput(typeof(IQuery<>))
+            .AddHandler(typeof(IQueryHandler<,>), assembly)
+            .AddDispatcher<IQueryDispatcher>()
+            .WithOpenTypeDecorator(typeof(ValidationQueryPipelineBehavior<,>))
+            .Build();
 
         services.Scan(s => s.FromAssemblies(assembly)
-            .AddClasses(classes => 
-                classes.AssignableTo(typeof(IQueryHandler<,>)).Where(_ => !_.IsGenericType))
-            .AsImplementedInterfaces()
-            .WithScopedLifetime());
-        
-        services.Scan(s => s.FromAssemblies(assembly)
-            .AddClasses(classes => 
+            .AddClasses(classes =>
                 classes.AssignableTo(typeof(IQueryRulesValidator<,>)).Where(_ => !_.IsGenericType))
             .AsImplementedInterfaces()
             .WithScopedLifetime());
-        
+
         services.Scan(s => s.FromAssemblies(assembly)
-            .AddClasses(classes => 
+            .AddClasses(classes =>
                 classes.AssignableTo(typeof(IQueryStructValidator<,>)).Where(_ => !_.IsGenericType))
             .AsImplementedInterfaces()
             .WithScopedLifetime());

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -12,13 +12,14 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" Version="2.0.123" />
+      <PackageReference Include="DumplingsDevs.Pipelines" Version="0.0.3-alpha" />
       <PackageReference Include="EntityFrameworkCore.Exceptions.Sqlite" Version="3.1.4" />
       <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.1" />
       <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
       <PackageReference Include="MiniValidation" Version="0.5.1-pre.20220429.53" />
       <PackageReference Include="Scrutor" Version="3.3.0" />
     </ItemGroup>

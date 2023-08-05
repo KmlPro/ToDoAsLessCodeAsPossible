@@ -3,22 +3,24 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Persistance.Transac
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline;
 
-internal sealed class UnitOfWorkCommandPipelineBehavior : ICommandPipelineBehavior
+internal sealed class UnitOfWorkCommandPipelineBehavior<TCommand, TResult> : ICommandHandler<TCommand, TResult> where TCommand : ICommand<TResult> where TResult: CommandResult
 {
-    private IUnitOfWork unitOfWork;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly ICommandHandler<TCommand, TResult> _commandHandler;
     
-    public UnitOfWorkCommandPipelineBehavior(IUnitOfWork unitOfWork)
+    public UnitOfWorkCommandPipelineBehavior(IUnitOfWork unitOfWork, ICommandHandler<TCommand, TResult> commandHandler)
     {
-        this.unitOfWork = unitOfWork;
+        _unitOfWork = unitOfWork;
+        _commandHandler = commandHandler;
     }
 
     //about ConfigureAwait(false): https://devblogs.microsoft.com/dotnet/configureawait-faq/
     //the reason why i use it here is to improve performance, because there i don't care about synchronization context (like HttpContext.Current)
-    public async Task<CommandResult> HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
+    public async Task<TResult> HandleAsync(TCommand command, CancellationToken cancellationToken)
     {
-        await using var transaction = unitOfWork.BeginTransaction();
-        var result = await next().ConfigureAwait(false);
-        await unitOfWork.SaveChangesAsync(cancellationToken);
+        await using var transaction = _unitOfWork.BeginTransaction();
+        var result = await _commandHandler.HandleAsync(command,cancellationToken).ConfigureAwait(false);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
         await transaction.CommitAsync(cancellationToken);
 
         return result;

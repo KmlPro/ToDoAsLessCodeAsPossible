@@ -4,16 +4,18 @@ using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Exceptions
 
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Commands.Pipeline.Validation;
 
-public class ValidationCommandPipelineBehavior: ICommandPipelineBehavior
+public class ValidationCommandPipelineBehavior<TCommand, TResult> : ICommandHandler<TCommand, TResult> where TCommand : ICommand<TResult> where TResult: CommandResult
 {
     private readonly IServiceScopeFactory _serviceFactory;
+    private readonly ICommandHandler<TCommand, TResult> _commandHandler;
 
-    public ValidationCommandPipelineBehavior(IServiceScopeFactory serviceFactory)
+    public ValidationCommandPipelineBehavior(IServiceScopeFactory serviceFactory, ICommandHandler<TCommand, TResult> commandHandler)
     {
         _serviceFactory = serviceFactory;
+        _commandHandler = commandHandler;
     }
     
-    public async Task<CommandResult> HandleAsync<TCommand>(TCommand command, CancellationToken cancellationToken, CommandHandlerDelegate next) where TCommand : ICommand
+    public async Task<TResult> HandleAsync(TCommand command, CancellationToken cancellationToken)
     {
         using var scope = _serviceFactory.CreateScope();
         var provider = scope.ServiceProvider;
@@ -30,18 +32,18 @@ public class ValidationCommandPipelineBehavior: ICommandPipelineBehavior
             throw new CommandRulesBrokenException(useCaseRulesValidationResult);
         }
         
-        return await next().ConfigureAwait(false);
+        return await _commandHandler.HandleAsync(command, cancellationToken).ConfigureAwait(false);
     }
 
-    private List<string> ValidateStruct<TCommand>(IServiceProvider provider, TCommand command) where TCommand : ICommand
+    private List<string> ValidateStruct(IServiceProvider provider, TCommand command)
     {
-        var structValidator = provider.GetService<ICommandStructValidator<TCommand>>();
+        var structValidator = provider.GetService<ICommandStructValidator<TCommand,TResult>>();
         return structValidator != null ? structValidator.ValidateStruct(command) : new List<string>();
     }
     
-    private async Task<List<string>> ValidateUseCaseRules<TCommand>(IServiceProvider provider, TCommand command, CancellationToken cancellationToken) where TCommand : ICommand
+    private async Task<List<string>> ValidateUseCaseRules(IServiceProvider provider, TCommand command, CancellationToken cancellationToken)
     {
-        var structValidator = provider.GetService<ICommandRulesValidator<TCommand>>();
+        var structValidator = provider.GetService<ICommandRulesValidator<TCommand,TResult>>();
         return structValidator != null ? await structValidator.ValidateUseCaseRules(command,cancellationToken) : new List<string>();
     }
 }

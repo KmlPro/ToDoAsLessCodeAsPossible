@@ -1,6 +1,6 @@
 namespace ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 
-public interface ICommandHandler<in TCommand> where TCommand : ICommand
+public interface ICommandHandler<in TCommand, TResult> where TCommand : ICommand<TResult> where TResult: class
 {
-    public Task<CommandResult> HandleAsync(TCommand command, CancellationToken token);
+    public Task<TResult> HandleAsync(TCommand command, CancellationToken token);
 }

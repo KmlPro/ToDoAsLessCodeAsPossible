@@ -4,9 +4,9 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.MarkToDoAsUnCompleted;
 
-public record MarkToDoAsUncompleted(Guid Id) : ICommand;
+public record MarkToDoAsUncompleted(Guid Id) : ICommand<CommandResult>;
 
-internal class MarkToDoAsUncompletedHandler : ICommandHandler<MarkToDoAsUncompleted>
+internal class MarkToDoAsUncompletedHandler : ICommandHandler<MarkToDoAsUncompleted, CommandResult>
 {
     private readonly IToDoWriteRepository _toDoWriteRepository;
 
@@ -18,10 +18,10 @@ internal class MarkToDoAsUncompletedHandler : ICommandHandler<MarkToDoAsUncomple
     public async Task<CommandResult> HandleAsync(MarkToDoAsUncompleted command, CancellationToken token)
     {
         var entityId = new EntityId(command.Id);
-        
+
         var toDo = await _toDoWriteRepository.GetAsync(entityId, token);
         toDo.MarkAsUnCompleted();
-        
+
         return new CommandResult(toDo.Id.Value.ToString());
     }
 }

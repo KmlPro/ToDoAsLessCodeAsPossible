@@ -4,7 +4,7 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.MarkToDoAsUnCompleted;
 
-public class MarkAsUncompletedValidator : ICommandRulesValidator<MarkToDoAsUncompleted>
+public class MarkAsUncompletedValidator : ICommandRulesValidator<MarkToDoAsUncompleted, CommandResult>
 {
     private const string ToDoNotExists = "To Do with given id does not exist or has been deleted. Id: ";
 
@@ -15,7 +15,8 @@ public class MarkAsUncompletedValidator : ICommandRulesValidator<MarkToDoAsUncom
         _toDoWriteRepository = toDoWriteRepository;
     }
 
-    public async Task<List<string>> ValidateUseCaseRules(MarkToDoAsUncompleted command, CancellationToken cancellationToken)
+    public async Task<List<string>> ValidateUseCaseRules(MarkToDoAsUncompleted command,
+        CancellationToken cancellationToken)
     {
         var errors = new List<string>();
 

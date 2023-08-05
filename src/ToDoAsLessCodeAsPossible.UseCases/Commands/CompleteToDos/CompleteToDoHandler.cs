@@ -4,9 +4,9 @@ using ToDoAsLessCodeAsPossible.UseCases.Services;
 
 namespace ToDoAsLessCodeAsPossible.UseCases.Commands.CompleteToDos;
 
-public record CompleteToDo(Guid Id) : ICommand;
+public record CompleteToDo(Guid Id) : ICommand<CommandResult>;
 
-internal class CompleteToDoHandler : ICommandHandler<CompleteToDo>
+internal class CompleteToDoHandler : ICommandHandler<CompleteToDo,CommandResult>
 {
     private readonly IToDoWriteRepository _toDoWriteRepository;
 
