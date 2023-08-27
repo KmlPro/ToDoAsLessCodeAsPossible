@@ -1,1 +1,2 @@
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ToDoAsLessCodeAsPossible.UseCases.Tests")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ToDoAsLessCodeAsPossible.Infrastructure.Tests")]
