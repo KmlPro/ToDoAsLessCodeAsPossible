@@ -1,7 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Pipelines;
-using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Commands;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Abstractions.Queries;
 using ToDoAsLessCodeAsPossible.BuildingBlocks.Infrastructure.Queries.Pipeline.Validation;
 
@@ -15,11 +14,13 @@ public static class Extensions
     public static IServiceCollection AddQueries(this IServiceCollection services,
         Assembly assembly)
     {
+        var sharedLibraryAssembly = typeof(Extensions).Assembly;
+
         services
             .AddPipeline()
             .AddInput(typeof(IQuery<>))
             .AddHandler(typeof(IQueryHandler<,>), assembly)
-            .AddDispatcher<IQueryDispatcher>()
+            .AddDispatcher<IQueryDispatcher>(sharedLibraryAssembly)
             .WithOpenTypeDecorator(typeof(ValidationQueryPipelineBehavior<,>))
             .Build();
 

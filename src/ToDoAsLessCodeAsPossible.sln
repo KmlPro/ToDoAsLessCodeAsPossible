@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.UseCases.Tests", "ToDoAsLessCodeAsPossible.UseCases.Tests\ToDoAsLessCodeAsPossible.UseCases.Tests.csproj", "{93A6D471-E1A5-4A36-9A90-7AF88347637F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAsLessCodeAsPossible.Infrastructure.Tests", "ToDoAsLessCodeAsPossible.Infrastructure.Tests\ToDoAsLessCodeAsPossible.Infrastructure.Tests.csproj", "{40E7416F-EFDA-43B9-A454-8D8C0BBC1420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{93A6D471-E1A5-4A36-9A90-7AF88347637F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A6D471-E1A5-4A36-9A90-7AF88347637F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A6D471-E1A5-4A36-9A90-7AF88347637F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E7416F-EFDA-43B9-A454-8D8C0BBC1420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E7416F-EFDA-43B9-A454-8D8C0BBC1420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E7416F-EFDA-43B9-A454-8D8C0BBC1420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E7416F-EFDA-43B9-A454-8D8C0BBC1420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FB325CE4-0523-4130-97D4-4D4C1068A8E4} = {E5657D14-4CE0-4FEE-B85D-5024F6C9DE3A}
@@ -88,5 +94,6 @@ Global
 		{63AFD63B-A074-49F8-8FC2-6051033D85D7} = {104A4329-CDD6-4848-909D-88F37640690B}
 		{B1B18A75-B867-48B5-A2A2-E38154157616} = {5A5D6EBC-4ABD-4D6F-A812-0E6AB4F2AB5C}
 		{93A6D471-E1A5-4A36-9A90-7AF88347637F} = {5A5D6EBC-4ABD-4D6F-A812-0E6AB4F2AB5C}
+		{40E7416F-EFDA-43B9-A454-8D8C0BBC1420} = {5A5D6EBC-4ABD-4D6F-A812-0E6AB4F2AB5C}
 	EndGlobalSection
 EndGlobal

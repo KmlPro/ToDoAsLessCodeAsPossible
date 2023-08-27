@@ -23,7 +23,7 @@ public static class Endpoint
             
             var query = new GetAllToDo(queryFilters);
             
-            var result = await queryDispatcher.Handle(query,token);
+            var result = await queryDispatcher.HandleAsync(query,token);
             return Results.Ok(result);
         });
     }

@@ -11,7 +11,7 @@ public static class Endpoint
         {
             var query = new GetToDo(id);
             
-            var result = await queryDispatcher.Handle(query,token);
+            var result = await queryDispatcher.HandleAsync(query,token);
             // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             return result == null ? Results.NotFound() : Results.Ok(result);
         });
