@@ -21,7 +21,7 @@ public static class Extensions
             .AddPipeline()
             .AddInput(typeof(ICommand<>))
             .AddHandler(typeof(ICommandHandler<,>), assembly)
-            .AddDispatcher<ICommandDispatcher>(new DispatcherOptions(true), sharedLibraryAssembly)
+            .AddDispatcher<ICommandDispatcher>(new DispatcherOptions(false), sharedLibraryAssembly)
             .WithOpenTypeDecorator(typeof(ValidationCommandPipelineBehavior<,>))
             .WithOpenTypeDecorator(typeof(UnitOfWorkCommandPipelineBehavior<,>))
             .Build();
