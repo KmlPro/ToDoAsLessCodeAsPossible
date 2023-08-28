@@ -20,7 +20,7 @@ public static class Extensions
             .AddPipeline()
             .AddInput(typeof(IQuery<>))
             .AddHandler(typeof(IQueryHandler<,>), assembly)
-            .AddDispatcher<IQueryDispatcher>(new DispatcherOptions(true),sharedLibraryAssembly)
+            .AddDispatcher<IQueryDispatcher>(new DispatcherOptions(false),sharedLibraryAssembly)
             .WithOpenTypeDecorator(typeof(ValidationQueryPipelineBehavior<,>))
             .Build();
 
